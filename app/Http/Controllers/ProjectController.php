@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Project;
+use App\Model\ProjectDetail;
 use Illuminate\Http\Request;
 class ProjectController extends Controller
 {
@@ -89,9 +90,9 @@ class ProjectController extends Controller
        return $data;
     }
     
-    public function ProjectDetails($id, Request $request) {
-         
-       return $data;
+    public function ProjectDetails($id, Request $request) { 
+       $project= ProjectDetail::all();
+       return view('project-detail-view', compact($project));
     }
     public function EditProjectDetails($id, Request $request) {
          
