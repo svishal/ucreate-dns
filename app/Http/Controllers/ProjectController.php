@@ -84,8 +84,9 @@ class ProjectController extends Controller
     }
     
     public function ProjectDetails($id, Request $request) { 
-       $project= ProjectDetail::all();
-       return view('project-detail-view', compact($project));
+       $project_details= ProjectDetail::all();
+         // echo"<pre>"; print_r($project_details);
+       return view('project-detail-view', compact($project_details));
     }
     public function EditProjectDetails($id, Request $request) {
          
