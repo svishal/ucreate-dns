@@ -13,7 +13,7 @@
 
 Auth::routes();
 
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/', 'ProjectController@index')->name('projects');
+Route::resource('projects', 'ProjectController');
 Route::get('/add-projects-from-doc', 'ProjectController@addProjectsFromDocument');
