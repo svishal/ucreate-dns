@@ -53,6 +53,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
+                                        <a href="{{url('projects/create')}}">Create New</a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

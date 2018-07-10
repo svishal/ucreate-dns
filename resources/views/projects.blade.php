@@ -30,7 +30,10 @@
                               <td>{{$project->short_name}}</td>
                               <td>{{$project->name}}</td>
                               <td><a target="_blank"href="{{$project->url}}">{{$project->url}}</a></td>
-                              <td><a href="{{url('projects/'.$project->id)}}">View</a></td>
+                              <td>
+                                  <a href="{{url('projects/'.$project->id)}}">View</a>
+                                  <a href="{{url('projects/'.$project->id.'/edit')}}">Edit</a>
+                              </td>
                               </tr>
                               </a>
                              @endforeach

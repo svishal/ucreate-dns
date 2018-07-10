@@ -30,7 +30,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('create-edit-project');
     }
 
     /**
@@ -63,7 +63,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('create-edit-project', compact('project'));
     }
 
     /**
@@ -75,19 +75,12 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
-    }
-
-     public function addProjectsFromDocument($document_name='domain_details.csv') {
-        $csv_file = url($document_name);
-        $data = [];
-        $project_data=file_get_contents($csv_file);
-        $projects = array_map("str_getcsv", explode("\n", $project_data));
-        foreach ($projects as $name) {
-          $data[]=$name;
-       }
-       echo"<pre>"; print_r($data);
-       return $data;
+        $project->short_name = $request->short_name;
+        $project->name = $request->name;
+        $project->url = $request->url;
+        if($project->save()){
+            return redirect('projects');
+        }
     }
     
     public function ProjectDetails($id, Request $request) { 
