@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Project;
 use App\Model\ProjectDetail;
 use Illuminate\Http\Request;
+use Validator;
 class ProjectController extends Controller
 {
     
@@ -40,8 +41,40 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $validator = Validator::make($request->all(), [
+            'short_name' => 'bail|required|unique:projects',
+            'name' => 'bail|required|unique:projects',
+            'url' => 'bail|required|url|unique:projects',
+            'contact_email' => 'bail|nullable|email|unique:projects',
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+        
+        $project = new Project([
+            'short_name' => $request->short_name,
+            'name' => $request->name,
+            'url' => $request->url
+        ]);
+        
+        $project_details = [];
+        foreach ($request->all() as $key=>$value){
+            if($key == 'short_name' || $key == 'name' || $key == 'url' || $key == '_token') continue;
+            if(!empty(trim($value))) $project_details[$key] = $value;
+        }
+        
+        if($project->save()){
+            if(count($project_details)){
+                $project_details['project_id'] = $project->id;
+                $project_detail = new ProjectDetail($project_details);
+                $project_detail->save();
+            }
+            return redirect('projects');
+        }
     }
 
     /**
@@ -81,16 +114,6 @@ class ProjectController extends Controller
         if($project->save()){
             return redirect('projects');
         }
-    }
-    
-    public function ProjectDetails($id, Request $request) { 
-       $project_details= ProjectDetail::all();
-         // echo"<pre>"; print_r($project_details);
-       return view('project-detail-view', compact($project_details));
-    }
-    public function EditProjectDetails($id, Request $request) {
-         
-       return $data;
     }
 
 }

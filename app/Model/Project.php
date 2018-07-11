@@ -11,4 +11,7 @@ class Project extends Model
         'short_name', 'name', 'url'
     ];
     
+    public function projectDetail(){
+        return $this->hasOne('App\Model\ProjectDetail');
+    }
 }
