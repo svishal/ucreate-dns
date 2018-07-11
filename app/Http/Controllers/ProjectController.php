@@ -84,7 +84,7 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Project $project)
-    {  
+    {     
         return view('project-view', compact('project'));
     }
 

@@ -42,7 +42,7 @@
                             <label>Domain Registrar</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                           {{($project->projectDetail->domain_registrar)??''}}
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -50,7 +50,7 @@
                             <label>Domain Registrant</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                            {{($project->projectDetail->registrant)??''}}
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -58,7 +58,7 @@
                             <label>Contact</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                         {{($project->projectDetail->contact)??''}}
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -66,7 +66,7 @@
                             <label>Name Servers</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                        {{($project->projectDetail->name_servers)??''}}   
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -74,7 +74,7 @@
                             <label>Website title</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                        {{($project->projectDetail->website_title)??''}}  
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -82,7 +82,7 @@
                             <label>Website description</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                           {{($project->projectDetail->website_description)??''}}     
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -90,7 +90,7 @@
                             <label>language</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                             {{($project->projectDetail->language)??''}}     
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -98,7 +98,7 @@
                             <label>Server Type</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                             {{($project->projectDetail->server_type)??''}}     
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -106,7 +106,7 @@
                             <label>Hosted On</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                             {{($project->projectDetail->server_type)??''}}     
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -114,7 +114,7 @@
                             <label>DNSSEC</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                             {{($project->projectDetail->dnssec)??''}}     
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -122,7 +122,7 @@
                             <label>Contact Email</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                           {{($project->projectDetail->contact_email)??''}}       
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -130,7 +130,7 @@
                             <label>Created date</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                             {{($project->projectDetail->created_date)??''}}     
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -138,7 +138,15 @@
                             <label>Expires Date</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                            {{($project->projectDetail->expires_date)??''}}      
+                        </div>
+                     </div>
+                     <div class="panel-body  col-md-8 col-md-offset-2">
+                        <div class="col-md-4 col-md-offset-2">
+                            <label>Address</label>
+                        </div> 
+                        <div class="col-md-4 col-md-offset-2">
+                           {{($project->projectDetail->address)??''}}       
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -146,7 +154,7 @@
                             <label>Alexa rank</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                           {{($project->projectDetail->alexa_rank)??''}}       
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -154,7 +162,7 @@
                             <label>SSL </label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                           {{($project->projectDetail->ssl)??''}}       
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -162,7 +170,7 @@
                             <label>SSL expiry </label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                          {{($project->projectDetail->ssl_expiry)??''}}        
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -170,7 +178,7 @@
                             <label>SSL type </label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                           
+                         {{($project->projectDetail->ssl_type)??''}}       
                         </div>
                      </div>
                    
