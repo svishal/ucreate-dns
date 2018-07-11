@@ -42,6 +42,10 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {   
+        $request->short_name = strtolower($request->short_name);
+        $request->name = strtolower($request->name);
+        $request->url = strtolower($request->url);
+        
         $validator = Validator::make($request->all(), [
             'short_name' => 'bail|required|unique:projects',
             'name' => 'bail|required|unique:projects',
@@ -108,6 +112,10 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+        $request->short_name = strtolower($request->short_name);
+        $request->name = strtolower($request->name);
+        $request->url = strtolower($request->url);
+        
         $validator = Validator::make($request->all(), [
             'short_name' => "bail|required|unique:projects,short_name,$project->id",
             'name' => "bail|required|unique:projects,name,$project->id",
