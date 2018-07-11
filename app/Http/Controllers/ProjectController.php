@@ -19,7 +19,7 @@ class ProjectController extends Controller
      */
     public function index()
     { 
-         $projects= Project::all();
+        $projects= Project::all();
         return view('projects', compact('projects'));
     }
 
@@ -51,7 +51,7 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Project $project)
-    {
+    {  
         return view('project-view', compact('project'));
     }
 
