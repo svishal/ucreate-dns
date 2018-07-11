@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                <div class="panel-heading center-align"><h3>{{ getProjectName($project->id,1)}} </h3></div>
 
-                <div class="panel-body">
+                <div class="panel-body projects-page">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}

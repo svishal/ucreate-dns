@@ -10,8 +10,10 @@ and open the template in the editor.
 .center-align{
     text-align: center;
 }
-.project-element{
- border-bottom:1px solid;
+.projects-page .panel-body {
+    padding: 5px 15px;
 }
+
+
 
 
