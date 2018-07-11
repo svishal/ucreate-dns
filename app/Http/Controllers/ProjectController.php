@@ -46,7 +46,7 @@ class ProjectController extends Controller
             'short_name' => 'bail|required|unique:projects',
             'name' => 'bail|required|unique:projects',
             'url' => 'bail|required|url|unique:projects',
-            'contact_email' => 'bail|nullable|email|unique:projects',
+            'contact_email' => 'bail|nullable|email',
         ]);
 
         if ($validator->fails()) {
@@ -108,10 +108,36 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+        $validator = Validator::make($request->all(), [
+            'short_name' => "bail|required|unique:projects,short_name,$project->id",
+            'name' => "bail|required|unique:projects,name,$project->id",
+            'url' => "bail|required|url|unique:projects,url,$project->id",
+            'contact_email' => "bail|nullable|email",
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+        
+        $project_detail_count = 0;
         $project->short_name = $request->short_name;
         $project->name = $request->name;
         $project->url = $request->url;
+        
+        foreach ($request->all() as $key=>$value){
+            if($key == 'short_name' || $key == 'name' || $key == 'url' || $key == '_token' || $key == '_method') continue;
+            if(!empty(trim($value))){
+                $project->projectDetail->$key = $value;
+                $project_detail_count++;
+            }
+        }
+        
         if($project->save()){
+            if($project_detail_count){
+                $project->projectDetail->save();
+            }
             return redirect('projects');
         }
     }
