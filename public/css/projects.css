@@ -13,7 +13,14 @@ and open the template in the editor.
 .projects-page .panel-body {
     padding: 5px 15px;
 }
+.search-project{
+    width:500px;
+    float:left;
+}
 
-
+.search-project input{
+    width:200px;
+    float:left;
+}
 
 

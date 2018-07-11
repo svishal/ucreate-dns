@@ -149,5 +149,10 @@ class ProjectController extends Controller
             return redirect('projects');
         }
     }
+    public function search(Request $request){
+        $title = $request->search;
+        $projects = \App\Model\Project::searchProject($title);
+        return view('projects', compact('projects'));
+        }
 
 }
