@@ -14,27 +14,49 @@
                         </div>
                     @endif
 
-                    <div class="col-lg-3 col-xs-6">
-                        <div class="small-box bg-green">
-                            <div class="inner">
-                                <h3>0</h3>
-                                <p>Domains</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-checkmark-circled" style="padding-top:16px;"></i>
-                            </div>
-                        </div>
-                        <div class="small-box bg-red">
-                            <div class="inner">
-                                <h3>0</h3>
-                                <p>Domains</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-checkmark-circled" style="padding-top:16px;"></i>
-                            </div>
-                        </div>
-                    </div>
-                  
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="well">
+                                        <h4 class="text-success"><a href="{{url('projects')}}">Domains</a> <span class="label label-primary pull-right">{{$dashboard['domain_count']}}</span> </h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="well">
+                                        <h4 class="text-success"><a href="{{url('projects')}}">SSL</a>    <span class="label label-primary pull-right">{{$dashboard['domains_with_ssl']}}</span> </h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="well">
+                                        <h4 class="text-success">Delegate Access  <span class="label label-primary pull-right">{{$dashboard['domains_with_delegate_access']}}</span> </h4>
+                                    </div>
+                                </div>
+                            </div><!--/row-->    
+                        </div><!--/col-12-->
+                    </div><!--/row-->
+                     <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="text-danger">Expiring Soon</h3>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="well">
+                                        <h4 class="text-danger">Domains<span class="label label-danger pull-right">10</span>  </h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="well">
+                                        <h4 class="text-danger">SSL<span class="label label-danger pull-right">5</span>  </h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="well">
+                                        <h4 class="text-danger">Hosting<span class="label label-danger pull-right">2</span>  </h4>
+                                    </div>
+                                </div>
+                            </div><!--/row-->    
+                        </div><!--/col-12-->
+                    </div><!--/row-->
                 </div>
             </div>
         </div>

@@ -15,5 +15,15 @@ class ProjectDetail extends Model
     static function project() {
      return $this->belongsTo('App/Model/Project');   
     }
-    
+    public static function projectsHavingSsl(){
+       return self::where("ssl",1)->count();
+    }
+    public static function projectsHavingDelegateAccess(){
+       return self::where("delegate_access_account", '!=', '')->count();
+    }
+    public static function projectExpiresIn($date){
+        $today= date('Y-m-d H:i:s');
+      
+       return $date;
+    }
 }
