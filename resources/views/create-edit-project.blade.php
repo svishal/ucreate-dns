@@ -27,11 +27,11 @@
                     @endif
                     <div>
                      @if(isset($project))
-                        <form action="{{url('projects/'.$project->id)}}" method="Post">
+                     <form action="{{url('projects/'.$project->id)}}" method="Post" enctype="multipart/form-data">
                          <input  type="hidden" name="_method" value="PUT">
                          <input  type="hidden" name="_token" value="{{ csrf_token() }}">
                     @else
-                        <form action="{{url('projects')}}" method="Post">
+                        <form action="{{url('projects')}}" method="Post" enctype="multipart/form-data">
                          <input  type="hidden" name="_token" value="{{ csrf_token() }}">
                     @endif
                         <div class="form-group col-md-8 col-md-offset-2">
@@ -39,7 +39,7 @@
                                 <label>Short Name</label>
                             </div> 
                             <div class="col-md-4 col-md-offset-2">
-                                <input class="form-control" class="form-control" type="text" name="short_name" value="{{($project->short_name)??old('short_name')}}"> 
+                                <input class="form-control" type="text" name="short_name" value="{{($project->short_name)??old('short_name')}}"> 
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2">
@@ -201,25 +201,52 @@
                                </div> 
                                <div class="col-md-4 col-md-offset-2">
                              <div class="checkbox">
-                              <label><input type="checkbox" value="{{($project->projectDetail->ssl)??old('ssl')}}">Yes</label>
+                                 <label><input type="checkbox" name="ssl" checked="{{($project->projectDetail->ssl)??old('ssl')}}">Yes</label>
                                   </div>
                                </div>
                          </div>
+                    <div id="ssl_info">
                         <div class="form-group col-md-8 col-md-offset-2">
-                               <div class="col-md-4 col-md-offset-2">
-                               <label>SSL Expiry</label>
-                                </div> 
-                               <div class="col-md-4 col-md-offset-2">
-                             <input class="form-control" type="text" name="ssl_expiry" value="{{($project->projectDetail->ssl_expiry)??old('ssl_expiry')}}">
-                               </div>
-                        
-                               <div class="col-md-4 col-md-offset-2">
-                               <label>SSL Type</label>
-                               </div> 
-                               <div class="col-md-4 col-md-offset-2">
-                             <input class="form-control" type="text" name="ssl_type" value="{{($project->projectDetail->ssl_type)??old('ssl_type')}}">
-                               </div>
-                         </div>
+                            <div class="col-md-4 col-md-offset-2">
+                                <label>Upload SSL CRT File</label>
+                            </div> 
+                            <div class="col-md-4 col-md-offset-2">
+                                <input type="file" name="ssl_crt_file" value="">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-8 col-md-offset-2">
+                            <div class="col-md-4 col-md-offset-2">
+                                <label>Upload Server Key File</label>
+                            </div> 
+                            <div class="col-md-4 col-md-offset-2">
+                                <input type="file" name="ssl_server_key_file" value="">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-8 col-md-offset-2">
+                            <div class="col-md-4 col-md-offset-2">
+                                <label>Upload CSR File</label>
+                            </div> 
+                            <div class="col-md-4 col-md-offset-2">
+                                <input type="file" name="ssl_csr_file" value="">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-8 col-md-offset-2">
+                            <div class="col-md-4 col-md-offset-2">
+                                <label>SSL Expiry</label>
+                            </div> 
+                            <div class="col-md-4 col-md-offset-2">
+                                <input class="form-control" type="text" name="ssl_expiry" value="{{($project->projectDetail->ssl_expiry)??old('ssl_expiry')}}">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-8 col-md-offset-2">
+                            <div class="col-md-4 col-md-offset-2">
+                                <label>SSL Type</label>
+                            </div> 
+                            <div class="col-md-4 col-md-offset-2">
+                                <input class="form-control" type="text" name="ssl_type" value="{{($project->projectDetail->ssl_type)??old('ssl_type')}}">
+                            </div>
+                        </div>
+                    </div>
                  <div class="form-group col-md-8 col-md-offset-4">
                       <input class="btn btn-lg btn-primary" type="submit">         
                     </div>

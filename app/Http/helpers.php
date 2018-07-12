@@ -6,12 +6,19 @@ function getProjectName($id,$short_name_only){
  
 }
 function uploadFile($file){ 
-   $original_file=$file->getClientOriginalName();
+    if($file){
+   $original_file= $file->getClientOriginalName();
    $name=time()."_".$original_file;
    $s3 = \Storage::disk('s3');
    $s3_bucket = getenv("S3_BUCKET_NAME");
    $file_path = '/' . $name;
-   $full_url= getenv('BUCKET_URL').$s3_bucket."".file_path;
    $s3->put($file_path, file_get_contents($file),'public');
-   return $full_url;
+   return $name;
+    }
+}
+function getImageUrl($name){ 
+   $s3 = \Storage::disk('s3');
+   $s3_bucket = getenv("S3_BUCKET_NAME");
+   $file_path = '/' . $name;
+  return $full_url= getenv('BUCKET_URL')."/".$s3_bucket."".$file_path;
 }
