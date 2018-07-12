@@ -87,7 +87,7 @@
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
                         <div class="col-md-4 col-md-offset-2">
-                            <label>language</label>
+                            <label>Technology</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
                              {{($project->projectDetail->language)??''}}     
