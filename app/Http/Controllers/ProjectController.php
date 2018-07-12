@@ -135,26 +135,37 @@ class ProjectController extends Controller
         $project->url = $request->url;
         $form_data=$request->all();
         
-//        $file1=$request->file('ssl_crt_file');
-//        $form_data['ssl_crt_file']= uploadFile($file1);
-//       
-//        $file2=$request->file('ssl_server_key_file');
-//        $form_data['ssl_server_key_file']= uploadFile($file2);
-//        
-//        $file3=$request->file('ssl_csr_file');
-//        $form_data['ssl_csr_file']= uploadFile($file3);
-
-        foreach ($request->all() as $key=>$value){
-            if($key == 'short_name' || $key == 'name' || $key == 'url' || $key == '_token' || $key == '_method') continue;
-            if(!empty(trim($value))){
-                $project->projectDetail->$key = $value;
-                $project_detail_count++;
-            }
-        }
+        $file1=$request->file('ssl_crt_file');
+        $form_data['ssl_crt_file']= uploadFile($file1);
+       
+        $file2=$request->file('ssl_server_key_file');
+        $form_data['ssl_server_key_file']= uploadFile($file2);
+        
+        $file3=$request->file('ssl_csr_file');
+        $form_data['ssl_csr_file']= uploadFile($file3);
           
         if($project->save()){
+            $project_details = [];
+            foreach ($request->all() as $key=>$value){
+                if($key == 'short_name' || $key == 'name' || $key == 'url' || $key == '_token' || $key == '_method') continue;
+                if(isset($project->projectDetail->id)){
+                    if(!empty(trim($value))){
+                        $project->projectDetail->$key = $value;
+                        $project_detail_count++;
+                    }
+                }else{
+                    $project_details['project_id'] = $project->id;
+                    if(!empty(trim($value))) $project_details[$key] = $value;
+                    $project_detail_count++;
+                }
+            }
             if($project_detail_count){
-                $project->projectDetail->save();
+                if(count($project_details)){
+                    $project_detail = new ProjectDetail($project_details);
+                    $project_detail->save();
+                }else{
+                    $project->projectDetail->save();
+                }
             }
             return redirect('projects');
         }
