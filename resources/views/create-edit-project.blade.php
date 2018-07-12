@@ -212,11 +212,11 @@
                                </div> 
                                <div class="col-md-4 col-md-offset-2">
                              <div class="checkbox">
-                                 <label><input type="checkbox" id="ssl" name="ssl" checked="{{($project->projectDetail->ssl)??old('ssl')}}">Yes</label>
+                                 <label><input type="checkbox" id="ssl" name="ssl" @if(isset($project->projectDetail->ssl)) checked="checked" @endif >Yes</label>
                                   </div>
                                </div>
                          </div>
-                    <div id="ssl_info">
+                    <div id="ssl_info" style="display: none">
                         <div class="form-group col-md-8 col-md-offset-2">
                             <div class="col-md-4 col-md-offset-2">
                                 <label>Upload SSL CRT File</label>

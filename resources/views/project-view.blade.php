@@ -174,7 +174,7 @@
                            {{($project->projectDetail->ssl)??''}}       
                         </div>
                      </div>
-                     <div id="ssl_info">
+                     <div id="ssl_info" style="display: none">
                         <div class="panel-body  col-md-8 col-md-offset-2">
                            <div class="col-md-4 col-md-offset-2">
                                <label>SSL expiry </label>
