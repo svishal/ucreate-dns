@@ -133,20 +133,18 @@ class ProjectController extends Controller
         $project->short_name = $request->short_name;
         $project->name = $request->name;
         $project->url = $request->url;
-        $form_data=$request->all();
         
+        $form_data=$request->all();
         $file1=$request->file('ssl_crt_file');
         $form_data['ssl_crt_file']= uploadFile($file1);
-       
         $file2=$request->file('ssl_server_key_file');
         $form_data['ssl_server_key_file']= uploadFile($file2);
-        
         $file3=$request->file('ssl_csr_file');
         $form_data['ssl_csr_file']= uploadFile($file3);
           
         if($project->save()){
             $project_details = [];
-            foreach ($request->all() as $key=>$value){
+            foreach ($form_data as $key=>$value){
                 if($key == 'short_name' || $key == 'name' || $key == 'url' || $key == '_token' || $key == '_method') continue;
                 if(isset($project->projectDetail->id)){
                     if(!empty(trim($value))){
@@ -167,7 +165,7 @@ class ProjectController extends Controller
                     $project->projectDetail->save();
                 }
             }
-            return redirect('projects');
+            return redirect('projects/'.$project->id);
         }
     }
     public function search(Request $request){
