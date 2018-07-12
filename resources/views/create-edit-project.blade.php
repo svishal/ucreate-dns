@@ -177,14 +177,23 @@
                         
                      
                         <div class="form-group col-md-8 col-md-offset-2">
-                               <div class="col-md-4 col-md-offset-2">
-                             <label>Address</label>
-                        
-                               </div> 
-                               <div class="col-md-4 col-md-offset-2">
-                        <input class="form-control" type="text" name="address" value="{{($project->projectDetail->address)??old('address')}}">
-                               </div>
-                         </div>
+                            <div class="col-md-4 col-md-offset-2">
+                                <label>Address</label>
+
+                            </div> 
+                            <div class="col-md-4 col-md-offset-2">
+                                <input class="form-control" type="text" name="address" value="{{($project->projectDetail->address)??old('address')}}">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-8 col-md-offset-2">
+                            <div class="col-md-4 col-md-offset-2">
+                                <label>Delegate Access Account </label>
+
+                            </div> 
+                            <div class="col-md-4 col-md-offset-2">
+                                <input class="form-control" type="text" name="address" value="{{($project->projectDetail->delegate_access_account)??old('delegate_access_account')}}">
+                            </div>
+                        </div>
                         <div class="form-group col-md-8 col-md-offset-2">
                                <div class="col-md-4 col-md-offset-2">
                              <label>Alexa Rank</label>

@@ -14,6 +14,9 @@ class Project extends Model
     public function projectDetail(){
         return $this->hasOne('App\Model\ProjectDetail');
     }
+    public static function allProjects(){
+       return self::orderBy('id')->get();
+    }
     public static function searchProject($key){
         return self::where([['short_name', 'iLIKE', '%' .strtolower($key) . '%']])
                ->orWhere([['name', 'iLIKE', '%' .strtolower($key) . '%']]) 

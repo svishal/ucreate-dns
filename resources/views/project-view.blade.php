@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-               <div class="panel-heading center-align"><h3>{{ getProjectName($project->id,1)}} </h3></div>
+                <div class="panel-heading center-align"> <span><h3>{{ getProjectName($project->id,1)}}</h3></span> <span> <a class="right" href="{{url('projects/'.$project->id.'/edit')}}">Edit</a></span></div>
 
                 <div class="panel-body projects-page">
                     @if (session('status'))
@@ -71,7 +71,7 @@
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
                         <div class="col-md-4 col-md-offset-2">
-                            <label>Website title</label>
+                            <label>Website Title</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
                         {{($project->projectDetail->website_title)??''}}  
@@ -79,7 +79,7 @@
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
                         <div class="col-md-4 col-md-offset-2">
-                            <label>Website description</label>
+                            <label>Website Description</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
                            {{($project->projectDetail->website_description)??''}}     
@@ -127,7 +127,7 @@
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
                         <div class="col-md-4 col-md-offset-2">
-                            <label>Created date</label>
+                            <label>Created Date</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
                              {{($project->projectDetail->created_date)??''}}     
@@ -151,7 +151,15 @@
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
                         <div class="col-md-4 col-md-offset-2">
-                            <label>Alexa rank</label>
+                            <label>Delegate Access Account </label>
+                        </div> 
+                        <div class="col-md-4 col-md-offset-2">
+                           {{($project->projectDetail->delegate_access_account)??''}}       
+                        </div>
+                     </div>
+                     <div class="panel-body  col-md-8 col-md-offset-2">
+                        <div class="col-md-4 col-md-offset-2">
+                            <label>Alexa Rank</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
                            {{($project->projectDetail->alexa_rank)??''}}       
