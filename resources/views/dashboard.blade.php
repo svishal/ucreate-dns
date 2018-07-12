@@ -19,17 +19,17 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-success"><a href="{{url('projects')}}">Domains</a> <span class="label label-primary pull-right">{{$dashboard['domain_count']}}</span> </h4>
+                                        <h4 class="text-success"><a href="{{url('projects')}}">Domains</a><span class="label label-primary pull-right">{{$dashboard['domain_count']}}</span> </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-success"><a href="{{url('projects')}}">SSL</a>    <span class="label label-primary pull-right">{{$dashboard['domains_with_ssl']}}</span> </h4>
+                                        <h4 class="text-success"><a href="{{url('projects?having_ssl')}}">SSL</a><span class="label label-primary pull-right">{{$dashboard['domains_with_ssl']}}</span> </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-success">Delegate Access  <span class="label label-primary pull-right">{{$dashboard['domains_with_delegate_access']}}</span> </h4>
+                                        <h4 class="text-success"><a href="{{url('projects?having_delegate_access')}}">Delegate Access</a><span class="label label-primary pull-right">{{$dashboard['domains_with_delegate_access']}}</span> </h4>
                                     </div>
                                 </div>
                             </div><!--/row-->    
@@ -41,17 +41,17 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-danger">Domains<span class="label label-danger pull-right">{{$dashboard['domains_expiring_soon']}}</span>  </h4>
+                                        <h4 class="text-danger"><a href="{{url('projects?expiring_domains')}}">Domains</a><span class="label label-danger pull-right">{{$dashboard['domains_expiring_soon']}}</span>  </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-danger">SSL<span class="label label-danger pull-right">{{$dashboard['ssl_expiring_soon']}}</span>  </h4>
+                                        <h4 class="text-danger"><a href="{{url('projects?expiring_ssl')}}">SSL</a><span class="label label-danger pull-right">{{$dashboard['ssl_expiring_soon']}}</span>  </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-danger">Hosting<span class="label label-danger pull-right">{{$dashboard['hosting_expiring_soon']}}</span>  </h4>
+                                        <h4 class="text-danger"><a href="{{url('projects?expiring_domains')}}">Hosting</a><span class="label label-danger pull-right">{{$dashboard['hosting_expiring_soon']}}</span>  </h4>
                                     </div>
                                 </div>
                             </div><!--/row-->    

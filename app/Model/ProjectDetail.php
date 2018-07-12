@@ -12,8 +12,8 @@ class ProjectDetail extends Model
             'created_date', 'expires_date', 'address', 'alexa_rank', 'ssl', 'ssl_expiry','ssl_type','ssl_crt_file','ssl_server_key_file','ssl_csr_file','delegate_access'
     ];
     
-    static function project() {
-     return $this->belongsTo('App/Model/Project');   
+    public function project() {
+     return $this->belongsTo('App\Model\Project');   
     }
     public static function projectsHavingSsl(){
        return self::where("ssl",1)->count();
@@ -24,8 +24,10 @@ class ProjectDetail extends Model
     public static function projectExpiresIn($date){
         return self::whereDate('expires_date','<=',$date)->count();
     }
-    public static function projectSslExpiresIn($date){
-        return self::whereDate('ssl_expiry','<=',$date)->count();
+    public static function projectSslExpiresIn($date, $count=false){
+        $query = self::whereDate('ssl_expiry','<=',$date);
+        if($count) return $query->count();
+        return $query->with('project')->get();
     }
     public static function projectHostingExpiresIn($date){
         return self::whereDate('expires_date','<=',$date)->count();
