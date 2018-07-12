@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.projects_layout')
 
 @section('content')
 <div class="container">
@@ -169,48 +169,51 @@
                         <div class="col-md-4 col-md-offset-2">
                             <label>SSL </label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div  class="col-md-4 col-md-offset-2">
+                            <input id="ssl" type="hidden" value="{{($project->projectDetail->ssl)??''}}">
                            {{($project->projectDetail->ssl)??''}}       
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
-                            <label>SSL expiry </label>
-                        </div> 
-                        <div class="col-md-4 col-md-offset-2">
-                          {{($project->projectDetail->ssl_expiry)??''}}        
+                     <div id="ssl_info">
+                        <div class="panel-body  col-md-8 col-md-offset-2">
+                           <div class="col-md-4 col-md-offset-2">
+                               <label>SSL expiry </label>
+                           </div> 
+                           <div class="col-md-4 col-md-offset-2">
+                             {{($project->projectDetail->ssl_expiry)??''}}        
+                           </div>
                         </div>
-                     </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
-                            <label>SSL CRT File</label>
-                        </div> 
-                        <div class="col-md-4 col-md-offset-2">
-                         @if(!empty($project->projectDetail->ssl_crt_file)) <a href="{{getImageUrl($project->projectDetail->ssl_crt_file)}}" target="_blank">{{$project->projectDetail->ssl_crt_file}}</a> @else'' @endif      
+                        <div class="panel-body  col-md-8 col-md-offset-2">
+                           <div class="col-md-4 col-md-offset-2">
+                               <label>SSL CRT File</label>
+                           </div> 
+                           <div class="col-md-4 col-md-offset-2">
+                            @if(!empty($project->projectDetail->ssl_crt_file)) <a href="{{getImageUrl($project->projectDetail->ssl_crt_file)}}" target="_blank">{{$project->projectDetail->ssl_crt_file}}</a> @else'' @endif      
+                           </div>
                         </div>
-                     </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
-                            <label>Server Key File </label>
-                        </div> 
-                        <div class="col-md-4 col-md-offset-2">
-                         @if(!empty($project->projectDetail->ssl_server_key_file)) <a href="{{getImageUrl($project->projectDetail->ssl_server_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_key_file}}</a> @else'' @endif      
+                        <div class="panel-body  col-md-8 col-md-offset-2">
+                           <div class="col-md-4 col-md-offset-2">
+                               <label>Server Key File </label>
+                           </div> 
+                           <div class="col-md-4 col-md-offset-2">
+                            @if(!empty($project->projectDetail->ssl_server_key_file)) <a href="{{getImageUrl($project->projectDetail->ssl_server_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_key_file}}</a> @else'' @endif      
+                           </div>
                         </div>
-                     </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
-                            <label>CSR File</label>
-                        </div> 
-                        <div class="col-md-4 col-md-offset-2">
-                         @if(!empty($project->projectDetail->ssl_csr_file)) <a href="{{getImageUrl($project->projectDetail->ssl_csr_file)}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a> @else'' @endif 
+                        <div class="panel-body  col-md-8 col-md-offset-2">
+                           <div class="col-md-4 col-md-offset-2">
+                               <label>CSR File</label>
+                           </div> 
+                           <div class="col-md-4 col-md-offset-2">
+                            @if(!empty($project->projectDetail->ssl_csr_file)) <a href="{{getImageUrl($project->projectDetail->ssl_csr_file)}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a> @else'' @endif 
+                           </div>
                         </div>
-                     </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
-                            <label>SSL type </label>
-                        </div> 
-                        <div class="col-md-4 col-md-offset-2">
-                         {{($project->projectDetail->ssl_type)??''}}       
+                        <div class="panel-body  col-md-8 col-md-offset-2">
+                           <div class="col-md-4 col-md-offset-2">
+                               <label>SSL type </label>
+                           </div> 
+                           <div class="col-md-4 col-md-offset-2">
+                            {{($project->projectDetail->ssl_type)??''}}       
+                           </div>
                         </div>
                      </div>
                    

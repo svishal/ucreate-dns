@@ -28,7 +28,12 @@ class HomeController extends Controller
         if(!Auth::check()){
             return Redirect::To('login');
         }else{
-            return Redirect::To('/projects');
+            return Redirect::To('dashboard');
         }
     }
+    
+    public function dashboard(){
+        return view('dashboard'); 
+    }
+    
 }

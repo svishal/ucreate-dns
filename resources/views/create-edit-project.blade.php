@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.projects_layout')
 
 @section('content')
 
@@ -15,9 +15,11 @@
                     </ul>
                 </div>
                 @endif
-                @if(isset($project))
-                <div class="panel-heading center-align"><h3>{{ getProjectName($project->id,1)}} </h3></div>
-                @endif
+               
+                <div class="panel-heading center-align">
+                    <h3>@if(isset($project)){{ getProjectName($project->id,1)}} @else Create Project @endif </h3>
+                </div>
+                
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -210,7 +212,7 @@
                                </div> 
                                <div class="col-md-4 col-md-offset-2">
                              <div class="checkbox">
-                                 <label><input type="checkbox" name="ssl" checked="{{($project->projectDetail->ssl)??old('ssl')}}">Yes</label>
+                                 <label><input type="checkbox" id="ssl" name="ssl" checked="{{($project->projectDetail->ssl)??old('ssl')}}">Yes</label>
                                   </div>
                                </div>
                          </div>
