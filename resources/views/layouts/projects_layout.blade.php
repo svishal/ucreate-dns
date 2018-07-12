@@ -36,7 +36,9 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                    <li><a href="{{url('dashboard')}}">Dashboard</a></li>
+                    <li><a href="{{url('projects')}}">All Projects</a></li>
+                    <li><a href="{{url('projects/create')}}">Create New Project</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -49,9 +51,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{url('projects')}}">All Projects</a>
-                                        <a href="{{url('projects/create')}}">Create New Project</a>
-                                        <a href="{{ route('logout') }}"
+                                       <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
