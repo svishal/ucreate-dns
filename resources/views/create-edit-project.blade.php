@@ -164,7 +164,7 @@
                         
                                </div> 
                                <div class="col-md-4 col-md-offset-2">
-                        <input class="form-control" type="text" name="created_date" value="{{($project->projectDetail->created_date)??old('created_date')}}">
+                                   <input class="form-control date_picker" type="text" name="created_date" value="{{($project->projectDetail->created_date)??old('created_date')}}" readonly="readonly">
                                </div>
                          </div>
                         <div class="form-group col-md-8 col-md-offset-2">
@@ -173,7 +173,7 @@
                         
                                </div> 
                                <div class="col-md-4 col-md-offset-2">
-                      <input class="form-control" type="text" name="expires_date" value="{{($project->projectDetail->expires_date)??old('expires_date')}}">
+                                   <input class="form-control date_picker" type="text" name="expires_date" value="{{($project->projectDetail->expires_date)??old('expires_date')}}" readonly="readonly">
                                </div>
                          </div>
                         
@@ -255,7 +255,7 @@
                                 <label>SSL Expiry</label>
                             </div> 
                             <div class="col-md-4 col-md-offset-2">
-                                <input class="form-control" type="text" name="ssl_expiry" value="{{($project->projectDetail->ssl_expiry)??old('ssl_expiry')}}">
+                                <input class="form-control date_picker" type="text" name="ssl_expiry" value="{{($project->projectDetail->ssl_expiry)??old('ssl_expiry')}}" readonly="readonly">
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2">

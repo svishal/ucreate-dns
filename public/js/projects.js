@@ -7,4 +7,9 @@ if($('#ssl').is(':checked')){
  $('#ssl').on("change",function(){
      $('#ssl_info').toggle();
  });
+ 
+ $('.date_picker').datetimepicker({
+    format: 'L',
+    ignoreReadonly: true
+  });
 });
