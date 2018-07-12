@@ -22,8 +22,12 @@ class ProjectDetail extends Model
        return self::where("delegate_access_account", '!=', '')->count();
     }
     public static function projectExpiresIn($date){
-        $today= date('Y-m-d H:i:s');
-      
-       return $date;
+        return self::whereDate('expires_date','<=',$date)->count();
+    }
+    public static function projectSslExpiresIn($date){
+        return self::whereDate('ssl_expiry','<=',$date)->count();
+    }
+    public static function projectHostingExpiresIn($date){
+        return self::whereDate('expires_date','<=',$date)->count();
     }
 }

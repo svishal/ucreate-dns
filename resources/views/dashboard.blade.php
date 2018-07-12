@@ -41,17 +41,17 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-danger">Domains<span class="label label-danger pull-right">10</span>  </h4>
+                                        <h4 class="text-danger">Domains<span class="label label-danger pull-right">{{$dashboard['domains_expiring_soon']}}</span>  </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-danger">SSL<span class="label label-danger pull-right">5</span>  </h4>
+                                        <h4 class="text-danger">SSL<span class="label label-danger pull-right">{{$dashboard['ssl_expiring_soon']}}</span>  </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-danger">Hosting<span class="label label-danger pull-right">2</span>  </h4>
+                                        <h4 class="text-danger">Hosting<span class="label label-danger pull-right">{{$dashboard['hosting_expiring_soon']}}</span>  </h4>
                                     </div>
                                 </div>
                             </div><!--/row-->    
