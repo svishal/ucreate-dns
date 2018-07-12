@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Project;
-use App\Model\ProjectDetail;
+use App\Model\{Project,ProjectDetail};
 use Illuminate\Http\Request;
 use Validator;
 class ProjectController extends Controller
@@ -18,9 +17,20 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    { 
-        $projects= Project::allProjects();
+    public function index(Request $request)
+    {
+        $form_data = $request->all();
+        if(count($form_data) && array_key_exists('having_ssl', $form_data)){
+             $projects = Project::searchProject('', '', 'having_ssl');
+        }elseif(count($form_data) && array_key_exists('expiring_ssl', $form_data)){
+            $projects = Project::searchProject('', date("Y-m-d", strtotime("+15 day")), 'ssl_expiry');
+        }elseif(count($form_data) && array_key_exists('expiring_domains', $form_data)){
+            $projects = Project::searchProject('', date("Y-m-d", strtotime("+15 day")), 'expires_date');
+        }elseif(count($form_data) && array_key_exists('having_delegate_access', $form_data)){
+            $projects = Project::searchProject('', '', 'having_delegate_access');
+        }else{
+            $projects = Project::allProjects();
+        }
         return view('projects', compact('projects'));
     }
 
