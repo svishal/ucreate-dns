@@ -29,7 +29,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        <img src="{{ url('images/dns.jpg') }}" style="width: 55px">
                     </a>
                 </div>
 

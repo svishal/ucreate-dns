@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
 
@@ -14,7 +14,27 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <div class="col-lg-3 col-xs-6">
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h3>0</h3>
+                                <p>Domains</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-checkmark-circled" style="padding-top:16px;"></i>
+                            </div>
+                        </div>
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                <h3>0</h3>
+                                <p>Domains</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-checkmark-circled" style="padding-top:16px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                  
                 </div>
             </div>
         </div>
