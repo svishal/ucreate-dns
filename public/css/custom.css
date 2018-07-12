@@ -1,0 +1,21 @@
+#app {
+    height: 100vh;
+}
+
+.navbar.navbar-static-top {
+    position: absolute;
+    min-height: 50px;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+    width: 100%;
+    top: 0;
+    z-index: 9999 !important;
+}
+
+.login_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #fff;
+}
