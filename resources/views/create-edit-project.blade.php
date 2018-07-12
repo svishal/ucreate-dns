@@ -112,7 +112,7 @@
                          </div>
                         <div class="form-group col-md-8 col-md-offset-2">
                                <div class="col-md-4 col-md-offset-2">
-                             <label>Language</label>
+                             <label>Technology</label>
                        
                                </div> 
                                <div class="col-md-4 col-md-offset-2">
