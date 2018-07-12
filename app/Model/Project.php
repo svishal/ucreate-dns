@@ -18,7 +18,7 @@ class Project extends Model
     public static function allProjects(){
        return self::orderBy('id')->get();
     }
-    public static function searchProject($key, $date, $filter_by_field = false){
+    public static function searchProject($key, $date='', $filter_by_field = false){
         if(!empty($key)){
             $query = self::where([['short_name', 'iLIKE', '%' .strtolower($key) . '%']])
                ->orWhere([['name', 'iLIKE', '%' .strtolower($key) . '%']]);

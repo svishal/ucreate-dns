@@ -191,5 +191,10 @@ class ProjectController extends Controller
         $projects = \App\Model\Project::searchProject($title);
         return view('projects', compact('projects'));
         }
+    public function homePageFilterProjects(Request $request){
+        $homepage_filter = $request->homepage_filter;
+        $projects = \App\Model\Project::searchProject($key);
+        return view('projects', compact('projects'));
+    }
 
 }

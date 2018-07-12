@@ -28,3 +28,7 @@ and open the template in the editor.
 .bg-red,.label-success{
     background-color: red !important;
 }
+h4.text-danger a {
+    color: #a94442;
+}
+
