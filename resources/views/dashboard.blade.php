@@ -19,17 +19,17 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-success"><span class="label label-primary pull-right">10</span> Domains </h4>
+                                        <h4 class="text-success"><a href="{{url('projects')}}">Domains</a> <span class="label label-primary pull-right">{{$dashboard['domain_count']}}</span> </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-success"><span class="label label-primary pull-right">5</span> SSL </h4>
+                                        <h4 class="text-success"><a href="{{url('projects')}}">SSL</a>    <span class="label label-primary pull-right">{{$dashboard['domains_with_ssl']}}</span> </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-success"><span class="label label-primary pull-right">2</span> Delegate Access </h4>
+                                        <h4 class="text-success">Delegate Access  <span class="label label-primary pull-right">{{$dashboard['domains_with_delegate_access']}}</span> </h4>
                                     </div>
                                 </div>
                             </div><!--/row-->    
@@ -41,17 +41,17 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-danger"><span class="label label-danger pull-right">10</span> Domains </h4>
+                                        <h4 class="text-danger">Domains<span class="label label-danger pull-right">10</span>  </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-danger"><span class="label label-danger pull-right">5</span> SSL </h4>
+                                        <h4 class="text-danger">SSL<span class="label label-danger pull-right">5</span>  </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="well">
-                                        <h4 class="text-danger"><span class="label label-danger pull-right">2</span> Hosting </h4>
+                                        <h4 class="text-danger">Hosting<span class="label label-danger pull-right">2</span>  </h4>
                                     </div>
                                 </div>
                             </div><!--/row-->    
