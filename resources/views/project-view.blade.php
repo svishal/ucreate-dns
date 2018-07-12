@@ -130,7 +130,7 @@
                             <label>Created Date</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                             {{($project->projectDetail->created_date)??''}}     
+                             {{($project->projectDetail->created_date)?date(date('d-m-Y', strtotime($project->projectDetail->created_date))):''}}     
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -138,7 +138,7 @@
                             <label>Expires Date</label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
-                            {{($project->projectDetail->expires_date)??''}}      
+                            {{($project->projectDetail->expires_date)?date(date('d-m-Y', strtotime($project->projectDetail->expires_date))):''}}
                         </div>
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
@@ -180,7 +180,7 @@
                                <label>SSL expiry </label>
                            </div> 
                            <div class="col-md-4 col-md-offset-2">
-                             {{($project->projectDetail->ssl_expiry)??''}}        
+                            {{($project->projectDetail->ssl_expiry)?date(date('d-m-Y', strtotime($project->projectDetail->ssl_expiry))):''}}
                            </div>
                         </div>
                         <div class="panel-body  col-md-8 col-md-offset-2">

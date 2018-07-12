@@ -9,7 +9,7 @@ if($('#ssl').is(':checked')){
  });
  
  $('.date_picker').datetimepicker({
-    format: 'L',
+    format: 'DD-MM-YYYY',
     ignoreReadonly: true
   });
 });

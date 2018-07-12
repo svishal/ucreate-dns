@@ -42,11 +42,15 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {   
-        $request->short_name = strtolower($request->short_name);
-        $request->name = strtolower($request->name);
-        $request->url = strtolower($request->url);
+        $form_data = $request->all();
+        $form_data['short_name'] = strtolower($request->short_name);
+        $form_data['name'] = strtolower($request->name);
+        $form_data['url'] = strtolower($request->url);
+        $form_data['created_date'] = (!empty($request->created_date))?date('Y-m-d', strtotime($request->created_date)):'';
+        $form_data['expires_date'] = (!empty($request->expires_date))?date('Y-m-d', strtotime($request->expires_date)):'';
+        $form_data['ssl_expiry'] = (!empty($request->ssl_expiry))?date('Y-m-d', strtotime($request->ssl_expiry)):'';
         
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make($form_data, [
             'short_name' => 'bail|required|unique:projects',
             'name' => 'bail|required|unique:projects',
             'url' => 'bail|required|url|unique:projects',
@@ -60,13 +64,13 @@ class ProjectController extends Controller
         }
         
         $project = new Project([
-            'short_name' => $request->short_name,
-            'name' => $request->name,
-            'url' => $request->url
+            'short_name' => $form_data['short_name'],
+            'name' => $form_data['name'],
+            'url' => $form_data['url']
         ]);
         
         $project_details = [];
-        foreach ($request->all() as $key=>$value){
+        foreach ($form_data as $key=>$value){
             if($key == 'short_name' || $key == 'name' || $key == 'url' || $key == '_token') continue;
             if(!empty(trim($value))) $project_details[$key] = $value;
         }
@@ -141,6 +145,10 @@ class ProjectController extends Controller
         $form_data['ssl_server_key_file']= uploadFile($file2);
         $file3=$request->file('ssl_csr_file');
         $form_data['ssl_csr_file']= uploadFile($file3);
+        
+        $form_data['created_date'] = (!empty($request->created_date))?date('Y-m-d', strtotime($request->created_date)):'';
+        $form_data['expires_date'] = (!empty($request->expires_date))?date('Y-m-d', strtotime($request->expires_date)):'';
+        $form_data['ssl_expiry'] = (!empty($request->ssl_expiry))?date('Y-m-d', strtotime($request->ssl_expiry)):'';
           
         if($project->save()){
             $project_details = [];
