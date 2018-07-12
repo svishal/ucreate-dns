@@ -175,6 +175,30 @@
                      </div>
                      <div class="panel-body  col-md-8 col-md-offset-2">
                         <div class="col-md-4 col-md-offset-2">
+                            <label>SSL CRT File</label>
+                        </div> 
+                        <div class="col-md-4 col-md-offset-2">
+                         @if(!empty($project->projectDetail->ssl_crt_file)) <a href="{{getImageUrl($project->projectDetail->ssl_crt_file)}}" target="_blank">{{$project->projectDetail->ssl_crt_file}}</a> @else'' @endif      
+                        </div>
+                     </div>
+                     <div class="panel-body  col-md-8 col-md-offset-2">
+                        <div class="col-md-4 col-md-offset-2">
+                            <label>Server Key File </label>
+                        </div> 
+                        <div class="col-md-4 col-md-offset-2">
+                         @if(!empty($project->projectDetail->ssl_server_key_file)) <a href="{{getImageUrl($project->projectDetail->ssl_server_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_key_file}}</a> @else'' @endif      
+                        </div>
+                     </div>
+                     <div class="panel-body  col-md-8 col-md-offset-2">
+                        <div class="col-md-4 col-md-offset-2">
+                            <label>CSR File</label>
+                        </div> 
+                        <div class="col-md-4 col-md-offset-2">
+                         @if(!empty($project->projectDetail->ssl_csr_file)) <a href="{{getImageUrl($project->projectDetail->ssl_csr_file)}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a> @else'' @endif 
+                        </div>
+                     </div>
+                     <div class="panel-body  col-md-8 col-md-offset-2">
+                        <div class="col-md-4 col-md-offset-2">
                             <label>SSL type </label>
                         </div> 
                         <div class="col-md-4 col-md-offset-2">
