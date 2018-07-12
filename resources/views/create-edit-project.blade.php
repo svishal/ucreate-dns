@@ -221,6 +221,9 @@
                             </div> 
                             <div class="col-md-4 col-md-offset-2">
                                 <input type="file" name="ssl_crt_file" value="">
+                                @if(!empty($project->projectDetail->ssl_crt_file))
+                                    <a href="{{getImageUrl($project->projectDetail->ssl_crt_file)}}" target="_blank">{{$project->projectDetail->ssl_crt_file}}</a>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2">
@@ -229,6 +232,9 @@
                             </div> 
                             <div class="col-md-4 col-md-offset-2">
                                 <input type="file" name="ssl_server_key_file" value="">
+                                @if(!empty($project->projectDetail->ssl_server_key_file))
+                                    <a href="{{getImageUrl($project->projectDetail->ssl_server_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_key_file}}</a>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2">
@@ -237,6 +243,9 @@
                             </div> 
                             <div class="col-md-4 col-md-offset-2">
                                 <input type="file" name="ssl_csr_file" value="">
+                                @if(!empty($project->projectDetail->ssl_csr_file))
+                                    <a href="{{getImageUrl($project->projectDetail->ssl_csr_file)}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2">
