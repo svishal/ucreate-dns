@@ -249,7 +249,7 @@
                             </div>
                         </div>
                     </div>
-                 <div class="form-group col-md-8 col-md-offset-4">
+                 <div class="form-group center-align ">
                       <input class="btn btn-lg btn-primary" type="submit">         
                     </div>
                      

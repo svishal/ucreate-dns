@@ -36,6 +36,8 @@ class Project extends Model
                     ->join('projects', 'projects.id', '=', 'project_details.project_id');
             }
         }
-        return $query->get();
+        if(isset($query)){
+          return $query->get();  
+        }
     }
 }

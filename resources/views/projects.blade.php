@@ -6,12 +6,7 @@
         <div class="col-md-12 ">
             <div class="panel panel-default">
                 <div class="panel-heading"> <h3>All Projects</h3> 
-                <form class="search-project form-group " id="search" action="{{url('/search')}}" method="GET">
-                        <input class="form-control" name='search' type="text" placeholder="Search Project">
-                        <button  class="btn btn-primary"  type="submit">search</button>
-                    </form>
-                  
-               </div>
+                </div>
 
                 <div class="panel-body">
                     @if (session('status'))
