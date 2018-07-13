@@ -27,7 +27,7 @@
                           @if(count($projects))
                            @foreach($projects as $project)
                             <tr>
-                                <td><a href="{{url('projects/'.$project->id)}}">{{$project->name}}</a>
+                                <td><a href="{{url('projects/'.$project->id)}}">{{ucfirst($project->name)}}</a>
                                     <span class="site_url"><a target="_blank"href="{{$project->url}}"><img src="{{url('/images/external_url.png')}}"></a></span>
 
 </td>
