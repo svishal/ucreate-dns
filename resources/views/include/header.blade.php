@@ -16,12 +16,15 @@
 
 <div class="collapse navbar-collapse" id="app-navbar-collapse">
     <!-- Left Side Of Navbar -->
+     @guest
+     @else
     <ul class="nav navbar-nav">
         <li><a href="{{url('dashboard')}}">Dashboard</a></li>
         <li><a href="{{url('projects')}}">All Domains</a></li>
         <li><a href="{{url('projects/create')}}">Add New Domain</a></li>
+        <li><a href="{{url('profile')}}">Profile</a></li>
     </ul>
-
+    @endguest
     <!-- Right Side Of Navbar -->
     <ul class="nav navbar-nav navbar-right">
         @guest
@@ -35,7 +38,7 @@
             </form>
         </li>
         <li>
-            <a href="{{ route('logout') }}"
+            <div class="nav-user-name"> Logged in as  <b>{{ ucfirst(Auth::user()->name)}}</b></div>   <a class="pull-right" href="{{ route('logout') }}"
                onclick="event.preventDefault();
                        document.getElementById('logout-form').submit();">
                 <img src="{{ url('images/logout.png') }}" style="width: 25px">
