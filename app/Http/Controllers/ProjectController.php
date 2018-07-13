@@ -102,8 +102,9 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Project $project)
-    {     
-        return view('project-view', compact('project'));
+    {   $domain_details= $this->getAdditionDomainDetails(get_domain($project->url)); 
+    //echo"<pre>";    print_r($domain_details); die;
+        return view('project-view', compact('project','domain_details'));
     }
 
     /**
@@ -191,10 +192,39 @@ class ProjectController extends Controller
         $projects = \App\Model\Project::searchProject($title);
         return view('projects', compact('projects'));
         }
-    public function homePageFilterProjects(Request $request){
-        $homepage_filter = $request->homepage_filter;
-        $projects = \App\Model\Project::searchProject($key);
-        return view('projects', compact('projects'));
+    public function getAdditionDomainDetails($domain) {
+        $record_type_array = ['A', 'MX', 'NS', 'TXT', 'SOA'];
+        if ($domain) {
+            foreach ($record_type_array as $record_type) {
+                $additional_domain_details[$record_type] = $this->getRecordValue($record_type, $this->getDomainDetailsApi($record_type, $domain));
+            }
+        return $additional_domain_details;
+            
+        }
     }
+
+    public function getDomainDetailsApi($record, $domain) {
+        $dns_api = getenv('GET_DNS_API');
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => "$dns_api/$record/$domain/",
+            CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+        ));
+        $resp = curl_exec($curl);
+        curl_close($curl);
+        return $resp;
+    }
+    public function getRecordValue($record_type, $record) {
+        $record = json_decode($record);
+        if ($record) {
+            foreach ($record as $key => $value) {
+                $result[] = $value->value;
+            }
+        }
+        return $result;
+    }
+    
+
 
 }

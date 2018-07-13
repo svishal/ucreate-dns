@@ -202,6 +202,26 @@
                      </div>
                    <span> <a class="pull-right" href="{{url('projects/'.$project->id.'/edit')}}">Edit</a></span>
                 </div>
+                <div class="panel-body projects-page">
+                    <div class="panel-heading center-align"><h3>Additional Domain details</h3> </div>
+                    <div class="additional-domain-details-panel">
+                        @if(!empty($domain_details))
+                        @foreach($domain_details as $key=>$record)
+                        <div class="panel-body  col-md-6">
+                            <div class="col-md-6">
+                                <label>{{$key}}</label>
+                            </div> 
+                            <div class="col-md-6">
+                                  @foreach($record as $key=>$value)
+                                 {{$value}}      
+                               @endforeach
+                            </div>
+                        </div>
+                        @endforeach
+                        @endif
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
