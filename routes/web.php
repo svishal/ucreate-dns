@@ -21,3 +21,4 @@ Route::get('/project-details/{id}', 'ProjectController@ProjectDetails');
 Route::get('/add-projects-from-doc', 'ProjectController@addProjectsFromDocument');
 Route::get('/search', 'ProjectController@search');
 Route::get('/get-additional-domain-details/{url}', 'ProjectController@getAdditionDomainDetails');
+Route::post('password/update', 'UserController@updatePassword');
