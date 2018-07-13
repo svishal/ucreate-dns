@@ -34,25 +34,16 @@
                 <button  class="btn btn-primary"  type="submit">search</button>
             </form>
         </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                {{ Auth::user()->name }} <span class="caret"></span>
+        <li>
+            <a href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+                <img src="{{ url('images/logout.png') }}" style="width: 25px">
             </a>
-
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                               document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                </li>
-            </ul>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
         </li>
-         @endguest
+        @endguest
     </ul>
 </div>
