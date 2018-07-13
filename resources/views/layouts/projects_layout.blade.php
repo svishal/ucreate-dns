@@ -37,8 +37,8 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                     <li><a href="{{url('dashboard')}}">Dashboard</a></li>
-                    <li><a href="{{url('projects')}}">All Projects</a></li>
-                    <li><a href="{{url('projects/create')}}">Create New Project</a></li>
+                    <li><a href="{{url('projects')}}">All Domains</a></li>
+                    <li><a href="{{url('projects/create')}}">Add New Domain</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
