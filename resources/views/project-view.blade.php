@@ -158,12 +158,12 @@
                         </div>
                      </div>
                      <div id="ssl_info" style="display: none">
-                        <div class="panel-body  col-md-6">
+                         <div class="panel-body  col-md-6">
                            <div class="col-md-6">
-                               <label>SSL expiry </label>
+                                <label>SSL Provider</label>
                            </div> 
                            <div class="col-md-6">
-                            {{(isset($project->projectDetail->ssl_expiry))? date('d-m-Y', strtotime($project->projectDetail->ssl_expiry)):''}}
+                            {{($project->projectDetail->ssl_provider)??''}}      
                            </div>
                         </div>
                         <div class="panel-body  col-md-6">
@@ -192,6 +192,14 @@
                         </div>
                         <div class="panel-body  col-md-6">
                            <div class="col-md-6">
+                               <label>SSL expiry </label>
+                           </div> 
+                           <div class="col-md-6">
+                            {{(isset($project->projectDetail->ssl_expiry))? date('d-m-Y', strtotime($project->projectDetail->ssl_expiry)):''}}
+                           </div>
+                        </div>
+                        <div class="panel-body  col-md-6">
+                           <div class="col-md-6">
                                <label>SSL type </label>
                            </div> 
                            <div class="col-md-6">
@@ -199,7 +207,7 @@
                            </div>
                         </div>
                      </div>
-                   <span> <a class="pull-right" href="{{url('projects/'.$project->id.'/edit')}}">Edit</a></span>
+                    <span class="pull-right"> <a  href="{{url('projects/'.$project->id.'/edit')}}">Edit</a>|<a href="{{url('projects/'.$project->id.'/delete')}}">Delete</a></span>
                 </div>
                 <div class="panel-body projects-page">
                     <div class="panel-heading center-align"><h3>Additional Domain details</h3> </div>

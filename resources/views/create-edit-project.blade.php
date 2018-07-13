@@ -202,6 +202,15 @@
                                 <div id="ssl_info" style="display: none">
                                     <div class="form-group col-md-6">
                                         <div class="col-md-6">
+                                            <label>SSL Provider</label>
+                                        </div> 
+                                        <div class="col-md-6 ">
+                                            <input class="form-control" type="text" name="ssl_provider" value="{{($project->projectDetail->ssl_provider)??old('ssl_provider')}}">
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="col-md-6">
                                             <label>Upload SSL CRT File</label>
                                         </div> 
                                         <div class="col-md-6 ">
