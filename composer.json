@@ -6,10 +6,11 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "doctrine/dbal": "^2.7",
+        "doctrine/dbal": "^2.5",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
+        "guzzlehttp/guzzle": "~5.3",
         "league/flysystem-aws-s3-v3": "^1.0"
     },
     "require-dev": {
