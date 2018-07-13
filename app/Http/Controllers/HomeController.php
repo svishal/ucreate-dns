@@ -43,5 +43,8 @@ class HomeController extends Controller
   
         return view('dashboard', compact('dashboard')); 
     }
+    public function profile(){
+     return view('profile'); 
+    }
     
 }

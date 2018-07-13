@@ -15,6 +15,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
+Route::get('/profile', 'HomeController@profile')->name('profile');
 Route::resource('projects', 'ProjectController');
 Route::get('/project-details/{id}', 'ProjectController@ProjectDetails');
 Route::get('/add-projects-from-doc', 'ProjectController@addProjectsFromDocument');

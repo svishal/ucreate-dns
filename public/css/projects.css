@@ -7,8 +7,8 @@ and open the template in the editor.
     Created on : 11 Jul, 2018, 11:41:23 AM
     Author     : Neem
 */
-.center-align{
-    text-align: center;
+a.navbar-brand {
+    padding: 8px 0px 0px 0px;
 }
 .projects-page .panel-body {
     padding: 5px 15px;
@@ -44,4 +44,13 @@ h4.text-danger a {
     margin-bottom: 6px;
 }
 
-
+.custom-login-box {
+    margin-top: 20%;
+}
+.nav-user-name {
+    margin: 15px 0px 10px 10px;
+    display: inline-block;
+}
+.center-align{
+    text-align: center;
+}
