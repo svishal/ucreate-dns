@@ -18,11 +18,14 @@
                         <div class="col-md-12">
                             <div class="row">
                                  <div class="col-md-12">
-                                <h4>Change password</h4>
+                                     <div class="col-md-2">
+                                 <h4>Change password</h4>
+                                       </div>
+                                <div class="col-md-10">
                                 <form method="post" action="{{ url('/') }}" id="update_buyer_pwd_form" name="update_buyer_pwd_form">
                                         {{ csrf_field() }}
                                         <div class="col-md-12 ">
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-12">
                                             <div class="col-md-6">
                                                  <label>Current password <span class="notification-star-buyer">*</span></label>
                                             </div> 
@@ -31,7 +34,7 @@
                                                 <div class="error-message" style="display: none;" id="validation_error_existing_password"></div>
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-12">
                                             <div class="col-md-6">
                                              <label>New password <span class="notification-star-buyer">*</span></label>
                                             </div> 
@@ -41,7 +44,7 @@
                                                
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-12">
                                             <div class="col-md-6">
                                              <label>Confirm new password <span class="notification-star-buyer">*</span></label>
                                             </div> 
@@ -51,13 +54,15 @@
                                               
                                             </div>
                                         </div>
-                                    
-                                        <div class="col-md-6">
-                                            <button  tabindex="38" type="button" class="btn btn-primary" id="buyer_update_pass_btn">Save</button>
+                                       <div class="col-md-12 pull-right">
+                                             <div class="col-md-6 col-md-offset-6">
+                                             <button  tabindex="38" type="button" class="btn btn-sm btn-primary" id="buyer_update_pass_btn">Change Password</button>
+                                             </div>
                                         </div>
                                            </div>
                                     </form>
                                 
+                                 </div>
                                  </div>
                             </div><!--/row-->    
                         </div><!--/col-12-->
