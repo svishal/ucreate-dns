@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading center-align"> <span><h3>{{ getProjectName($project->id,1)}}</h3></span> <span> <a class="right" href="{{url('projects/'.$project->id.'/edit')}}">Edit</a></span></div>
+                <div class="panel-heading center-align"> <span><h3>{{ strtoupper(getProjectName($project->id,1))}}</h3></span> </div>
 
                 <div class="panel-body projects-page">
                     @if (session('status'))
@@ -13,210 +13,194 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                     <div class="panel-body col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body col-md-6">
+                        <div class="col-md-6">
                             <label>Short Name</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                            {{$project->short_name}}
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Name</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                            {{$project->name}}
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Url</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                            <a href="{{$project->url}}" target="_blank">{{$project->url}}</a>
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Domain Registrar</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                            {{($project->projectDetail->domain_registrar)??''}}
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Domain Registrant</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                             {{($project->projectDetail->registrant)??''}}
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Contact</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                          {{($project->projectDetail->contact)??''}}
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
-                            <label>Name Servers</label>
-                        </div> 
-                        <div class="col-md-4 col-md-offset-2">
-                        {{($project->projectDetail->name_servers)??''}}   
-                        </div>
-                     </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Website Title</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                         {{($project->projectDetail->website_title)??''}}  
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
-                            <label>Website Description</label>
-                        </div> 
-                        <div class="col-md-4 col-md-offset-2">
-                           {{($project->projectDetail->website_description)??''}}     
-                        </div>
-                     </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Technology</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                              {{($project->projectDetail->language)??''}}     
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Server Type</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                              {{($project->projectDetail->server_type)??''}}     
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Hosted On</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                              {{($project->projectDetail->server_type)??''}}     
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>DNSSEC</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                              {{($project->projectDetail->dnssec)??''}}     
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Contact Email</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                            {{($project->projectDetail->contact_email)??''}}       
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Created Date</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
-                             {{($project->projectDetail->created_date)?date(date('d-m-Y', strtotime($project->projectDetail->created_date))):''}}     
+                        <div class="col-md-6">
+                             {{(isset($project->projectDetail->created_date))?date('d-m-Y', strtotime($project->projectDetail->created_date)):''}}     
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Expires Date</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
-                            {{($project->projectDetail->expires_date)?date(date('d-m-Y', strtotime($project->projectDetail->expires_date))):''}}
+                        <div class="col-md-6">
+                            {{ (isset($project->projectDetail->expires_date))?date('d-m-Y', strtotime($project->projectDetail->expires_date)):''}}
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Address</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                            {{($project->projectDetail->address)??''}}       
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Delegate Access Account </label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                            {{($project->projectDetail->delegate_access_account)??''}}       
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>Alexa Rank</label>
                         </div> 
-                        <div class="col-md-4 col-md-offset-2">
+                        <div class="col-md-6">
                            {{($project->projectDetail->alexa_rank)??''}}       
                         </div>
                      </div>
-                     <div class="panel-body  col-md-8 col-md-offset-2">
-                        <div class="col-md-4 col-md-offset-2">
+                     <div class="panel-body  col-md-6">
+                        <div class="col-md-6">
                             <label>SSL </label>
                         </div> 
-                        <div  class="col-md-4 col-md-offset-2">
+                        <div  class="col-md-6">
                             <input id="ssl" type="hidden" value="{{($project->projectDetail->ssl)??''}}">
-                           {{($project->projectDetail->ssl)??''}}       
+                           {{($project->projectDetail->ssl)??'N/A'}}       
                         </div>
                      </div>
                      <div id="ssl_info" style="display: none">
-                        <div class="panel-body  col-md-8 col-md-offset-2">
-                           <div class="col-md-4 col-md-offset-2">
+                        <div class="panel-body  col-md-6">
+                           <div class="col-md-6">
                                <label>SSL expiry </label>
                            </div> 
-                           <div class="col-md-4 col-md-offset-2">
-                            {{($project->projectDetail->ssl_expiry)?date(date('d-m-Y', strtotime($project->projectDetail->ssl_expiry))):''}}
+                           <div class="col-md-6">
+                            {{(isset($project->projectDetail->ssl_expiry))? date('d-m-Y', strtotime($project->projectDetail->ssl_expiry)):''}}
                            </div>
                         </div>
-                        <div class="panel-body  col-md-8 col-md-offset-2">
-                           <div class="col-md-4 col-md-offset-2">
+                        <div class="panel-body  col-md-6">
+                           <div class="col-md-6">
                                <label>SSL CRT File</label>
                            </div> 
-                           <div class="col-md-4 col-md-offset-2">
+                           <div class="col-md-6">
                             @if(!empty($project->projectDetail->ssl_crt_file)) <a href="{{getImageUrl($project->projectDetail->ssl_crt_file)}}" target="_blank">{{$project->projectDetail->ssl_crt_file}}</a> @else'' @endif      
                            </div>
                         </div>
-                        <div class="panel-body  col-md-8 col-md-offset-2">
-                           <div class="col-md-4 col-md-offset-2">
+                        <div class="panel-body  col-md-6">
+                           <div class="col-md-6">
                                <label>Server Key File </label>
                            </div> 
-                           <div class="col-md-4 col-md-offset-2">
+                           <div class="col-md-6">
                             @if(!empty($project->projectDetail->ssl_server_key_file)) <a href="{{getImageUrl($project->projectDetail->ssl_server_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_key_file}}</a> @else'' @endif      
                            </div>
                         </div>
-                        <div class="panel-body  col-md-8 col-md-offset-2">
-                           <div class="col-md-4 col-md-offset-2">
+                        <div class="panel-body  col-md-6">
+                           <div class="col-md-6">
                                <label>CSR File</label>
                            </div> 
-                           <div class="col-md-4 col-md-offset-2">
+                           <div class="col-md-6">
                             @if(!empty($project->projectDetail->ssl_csr_file)) <a href="{{getImageUrl($project->projectDetail->ssl_csr_file)}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a> @else'' @endif 
                            </div>
                         </div>
-                        <div class="panel-body  col-md-8 col-md-offset-2">
-                           <div class="col-md-4 col-md-offset-2">
+                        <div class="panel-body  col-md-6">
+                           <div class="col-md-6">
                                <label>SSL type </label>
                            </div> 
-                           <div class="col-md-4 col-md-offset-2">
+                           <div class="col-md-6">
                             {{($project->projectDetail->ssl_type)??''}}       
                            </div>
                         </div>
                      </div>
-                   
+                   <span> <a class="pull-right" href="{{url('projects/'.$project->id.'/edit')}}">Edit</a></span>
                 </div>
             </div>
         </div>

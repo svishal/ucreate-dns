@@ -37,14 +37,19 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                     <li><a href="{{url('dashboard')}}">Dashboard</a></li>
-                    <li><a href="{{url('projects')}}">All Projects</a></li>
-                    <li><a href="{{url('projects/create')}}">Create New Project</a></li>
+                    <li><a href="{{url('projects')}}">All Domains</a></li>
+                    <li><a href="{{url('projects/create')}}">Add New Domain</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                       <li class="dropdown">
+                        <li class="search-project"><form class="form-group " id="search" action="{{url('/search')}}" method="GET">
+                        <input class="form-control" name='search' type="text" placeholder="Search Domain">
+                        <button  class="btn btn-primary"  type="submit">search</button>
+                        </form>
+                    </li>
+                      <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
