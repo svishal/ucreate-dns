@@ -18,22 +18,24 @@
                      <table class="table">
                         <thead>
                           <tr>
-                            <th>Short_name</th>
                             <th>Name</th>
-                            <th>Url</th>
-                            <th>Action</th>
+                            <th>Domain Expiry Date</th>
+                            <th>SSL Expiry Date</th>
                           </tr>
                         </thead>
                         <tbody>
                           @if(count($projects))
                            @foreach($projects as $project)
                             <tr>
-                              <td>{{$project->short_name}}</td>
-                              <td>{{$project->name}}</td>
-                              <td><a target="_blank"href="{{$project->url}}">{{$project->url}}</a></td>
+                                <td><a href="{{url('projects/'.$project->id.'/edit')}}">{{$project->name}}</a>
+                                    <span class="site_url"><a target="_blank"href="{{$project->url}}"><img src="{{url('/images/external_url.png')}}"></a></span>
+
+</td>
                               <td>
-                                  <a href="{{url('projects/'.$project->id)}}">View</a> |
-                                  <a href="{{url('projects/'.$project->id.'/edit')}}">Edit</a>
+                                  {{(isset($project->projectDetail->expires_date))?date('d-m-Y', strtotime($project->projectDetail->expires_date)):""}}
+                              </td>
+                              <td>
+                                  {{(isset($project->projectDetail->ssl_expiry))?date('d-m-Y', strtotime($project->projectDetail->ssl_expiry)):""}}
                               </td>
                               </tr>
                               </a>
