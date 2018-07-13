@@ -23,7 +23,6 @@ class Project extends Model
             $query = self::where([['short_name', 'iLIKE', '%' .strtolower($key) . '%']])
                ->orWhere([['name', 'iLIKE', '%' .strtolower($key) . '%']]);
         }
-        
         if($filter_by_field){
             if($filter_by_field=='having_ssl'){
                 $query = ProjectDetail::whereNotNull('ssl')->where('ssl', TRUE)
