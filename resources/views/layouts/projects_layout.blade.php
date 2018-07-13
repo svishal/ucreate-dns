@@ -45,7 +45,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         <li class="search-project"><form class="form-group " id="search" action="{{url('/search')}}" method="GET">
-                        <input class="form-control" name='search' type="text" placeholder="Search Project">
+                        <input class="form-control" name='search' type="text" placeholder="Search Domain">
                         <button  class="btn btn-primary"  type="submit">search</button>
                         </form>
                     </li>
