@@ -102,7 +102,7 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Project $project)
-    {   $domain_details= $this->getAdditionDomainDetails(get_domain($project->url)); 
+    {    $domain_details= $this->getAdditionDomainDetails( get_domain($project->url)); 
     //echo"<pre>";    print_r($domain_details); die;
         return view('project-view', compact('project','domain_details'));
     }

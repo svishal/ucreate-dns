@@ -153,8 +153,7 @@
                         <div class="col-md-6">
                             <label>SSL </label>
                         </div> 
-                        <div  class="col-md-6">
-                            <input id="ssl" type="hidden" value="{{($project->projectDetail->ssl)??''}}">
+                        <div id="view_ssl" data-ssl="{{($project->projectDetail->ssl)??''}}" class="col-md-6">
                            {{($project->projectDetail->ssl)??'N/A'}}       
                         </div>
                      </div>
