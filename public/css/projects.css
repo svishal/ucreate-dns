@@ -34,5 +34,9 @@ and open the template in the editor.
 h4.text-danger a {
     color: #a94442;
 }
+.validation-error{
+    margin-top: 8px;
+    color: #a94442;
+}
 
 
