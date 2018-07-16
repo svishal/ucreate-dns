@@ -216,15 +216,16 @@ class ProjectController extends Controller
         return $resp;
     }
     public function getRecordValue($record_type, $record) {
-        $record = json_decode($record);
-        if ($record) {
+        $result= array();
+        $record = json_decode($record, TRUE);
+        if (!empty($record)) {
             foreach ($record as $key => $value) {
-                $result[] = $value->value;
+               if(!empty($value) && isset($value['value'])){ $result[] = $value['value'];}
             }
         }
         return $result;
     }
-    
+  
 
 
 }
