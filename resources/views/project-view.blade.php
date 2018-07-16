@@ -5,7 +5,10 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading center-align"> <span><h3>{{ strtoupper(getProjectName($project->id,1))}}</h3></span> <span><a href="https://docs.google.com/gview?url={{url('/test')}}.pdf">how to add SSL</a></span></div>
+                <div class="panel-heading center-align col-md-12"> 
+                    <span class="col-lg-6 col-md-6"><h3 class="pull-right">{{ strtoupper(getProjectName($project->id,1))}}</h3></span> 
+                    <span class="col-lg-6 col-md-6 add-ssl-guide-link"><a class="pull-right" target="_blank" href="https://docs.google.com/gview?url=http://ucreate-dns.herokuapp.com/test.pdf">How to add SSL</a></span>
+                </div>
 
                 <div class="panel-body projects-page">
                     @if (session('status'))
