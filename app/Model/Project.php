@@ -15,6 +15,9 @@ class Project extends Model
     public function projectDetail(){
         return $this->hasOne('App\Model\ProjectDetail');
     }
+    public function nameServerRecord(){
+        return $this->hasOne('App\Model\NameServerRecord');
+    }
     public static function allProjects(){
        return self::orderBy('id')->get();
     }
@@ -38,5 +41,17 @@ class Project extends Model
         if(isset($query)){
           return $query->get();  
         }
+    }
+    
+    public static function fetchProject($condition, $related_models=[]){
+        $result = [];
+        $query = self::where($condition);
+        if(count($related_models)){
+            $query = $query->with($related_models);
+        }
+        if(count($query)){
+            $result = $query->get();
+        }
+        return $result;
     }
 }

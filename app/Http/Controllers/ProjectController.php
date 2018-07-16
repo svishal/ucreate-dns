@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Model\{Project,ProjectDetail};
 use Illuminate\Http\Request;
 use Validator;
+use App\Jobs\GetNameServerRecords;
+
 class ProjectController extends Controller
 {
     
@@ -191,42 +193,11 @@ class ProjectController extends Controller
         $title = $request->search;
         $projects = \App\Model\Project::searchProject($title);
         return view('projects', compact('projects'));
-        }
-    public function getAdditionDomainDetails($domain) {
-        $record_type_array = ['A', 'MX', 'NS', 'TXT', 'SOA'];
-        if ($domain) {
-            foreach ($record_type_array as $record_type) {
-                $additional_domain_details[$record_type] = $this->getRecordValue($record_type, $this->getDomainDetailsApi($record_type, $domain));
-            }
-        return $additional_domain_details;
-            
+    }
+    
+    public function createNameServerRecordRequest($project_id){
+        if(GetNameServerRecords::dispatch($project_id)){
+            return 'Request created successfully';
         }
     }
-
-    public function getDomainDetailsApi($record, $domain) {
-        $dns_api = getenv('GET_DNS_API');
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => "$dns_api/$record/$domain/",
-            CURLOPT_USERAGENT => 'Codular Sample cURL Request',
-            CURLOPT_TIMEOUT=>500
-        ));
-        $resp = curl_exec($curl);
-        curl_close($curl);
-        return $resp;
-    }
-    public function getRecordValue($record_type, $record) {
-        $result= array();
-        $record = json_decode($record, TRUE);
-        if (!empty($record)) {
-            foreach ($record as $key => $value) {
-               if(!empty($value) && isset($value['value'])){ $result[] = $value['value'];}
-            }
-        }
-        return $result;
-    }
-  
-
-
 }

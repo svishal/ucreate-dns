@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/ucreate-dns/.env</file>
-            <file>file:/var/www/html/ucreate-dns/resources/views/create-edit-project.blade.php</file>
-            <file>file:/var/www/html/ucreate-dns/app/Http/Controllers/HomeController.php</file>
-            <file>file:/var/www/html/ucreate-dns/public/css/projects.css</file>
+            <file>file:/var/www/html/ucreate-dns/routes/web.php</file>
             <file>file:/var/www/html/ucreate-dns/resources/views/project-view.blade.php</file>
+            <file>file:/var/www/html/ucreate-dns/app/Http/Controllers/HomeController.php</file>
+            <file>file:/var/www/html/ucreate-dns/app/Http/Controllers/UserController.php</file>
+            <file>file:/var/www/html/ucreate-dns/resources/views/profile.blade.php</file>
+            <file>file:/var/www/html/ucreate-dns/resources/views/create-edit-project.blade.php</file>
+            <file>file:/var/www/html/ucreate-dns/.env</file>
         </group>
     </open-files>
 </project-private>
