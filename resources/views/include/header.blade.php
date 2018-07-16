@@ -1,5 +1,4 @@
 <div class="navbar-header">
-
     <!-- Collapsed Hamburger -->
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
         <span class="sr-only">Toggle Navigation</span>
@@ -28,8 +27,8 @@
     <!-- Right Side Of Navbar -->
     <ul class="nav navbar-nav navbar-right">
         @guest
-        <!-- <li><a href="{{ route('login') }}">Login</a></li>
-          <li><a href="{{ route('register') }}">Register</a></li>-->
+        @if(Request::path() != 'login')<li><a href="{{ route('login') }}">Login</a></li>@endif
+          <li><a href="{{ route('register') }}">Register</a></li>
         @else
         <!-- Authentication Links -->
         <li class="search-project"><form class="form-group " id="search" action="{{url('/search')}}" method="GET">

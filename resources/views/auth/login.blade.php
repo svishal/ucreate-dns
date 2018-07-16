@@ -4,8 +4,9 @@
 <div class="login_form">
 <div class="container">
     <div class="row">
-        <div class=" custom-login-box col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+       <div class=" custom-login-box col-md-8 col-md-offset-2">
+           <div class="domain-logo"><img src="{{ url('images/manage-domains-logo.png') }}"></div>
+           <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
 
                 <div class="panel-body">

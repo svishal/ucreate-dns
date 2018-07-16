@@ -209,7 +209,8 @@ class ProjectController extends Controller
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_URL => "$dns_api/$record/$domain/",
-            CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+            CURLOPT_USERAGENT => 'Codular Sample cURL Request',
+            CURLOPT_TIMEOUT=>500
         ));
         $resp = curl_exec($curl);
         curl_close($curl);

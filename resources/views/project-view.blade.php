@@ -219,9 +219,11 @@
                                 <label>{{$key}}</label>
                             </div> 
                             <div class="col-md-6">
+                                @if(!empty($record))
                                   @foreach($record as $key=>$value)
                                  {{$value}}      
                                @endforeach
+                               @endif
                             </div>
                         </div>
                         @endforeach
