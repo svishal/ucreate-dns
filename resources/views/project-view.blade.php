@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading center-align"> <span><h3>{{ strtoupper(getProjectName($project->id,1))}}</h3></span> </div>
+                <div class="panel-heading center-align"> <span><h3>{{ strtoupper(getProjectName($project->id,1))}}</h3></span> <span><a href="https://docs.google.com/gview?url={{url('/test')}}.pdf">how to add SSL</a></span></div>
 
                 <div class="panel-body projects-page">
                     @if (session('status'))
