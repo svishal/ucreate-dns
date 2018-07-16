@@ -171,7 +171,7 @@
                                <label>SSL CRT File</label>
                            </div> 
                            <div class="col-md-6">
-                            @if(!empty($project->projectDetail->ssl_crt_file)) <a href="{{getImageUrl($project->projectDetail->ssl_crt_file)}}" target="_blank">{{$project->projectDetail->ssl_crt_file}}</a> @else'' @endif      
+                            @if(!empty($project->projectDetail->ssl_crt_file)) <a href="{{readPrivateFileUrl($project->projectDetail->ssl_crt_file)}}" target="_blank">{{$project->projectDetail->ssl_crt_file}}</a> @else'' @endif      
                            </div>
                         </div>
                         <div class="panel-body  col-md-6">
@@ -179,7 +179,7 @@
                                <label>Server Key File </label>
                            </div> 
                            <div class="col-md-6">
-                            @if(!empty($project->projectDetail->ssl_server_key_file)) <a href="{{getImageUrl($project->projectDetail->ssl_server_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_key_file}}</a> @else'' @endif      
+                            @if(!empty($project->projectDetail->ssl_server_key_file)) <a href="{{readPrivateFileUrl($project->projectDetail->ssl_server_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_key_file}}</a> @else'' @endif      
                            </div>
                         </div>
                         <div class="panel-body  col-md-6">
@@ -187,7 +187,7 @@
                                <label>CSR File</label>
                            </div> 
                            <div class="col-md-6">
-                            @if(!empty($project->projectDetail->ssl_csr_file)) <a href="{{getImageUrl($project->projectDetail->ssl_csr_file)}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a> @else'' @endif 
+                            @if(!empty($project->projectDetail->ssl_csr_file)) <a href="{{readPrivateFileUrl(getImageUrl($project->projectDetail->ssl_csr_file))}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a> @else'' @endif 
                            </div>
                         </div>
                         <div class="panel-body  col-md-6">
