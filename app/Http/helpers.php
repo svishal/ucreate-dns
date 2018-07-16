@@ -29,3 +29,11 @@ function get_domain($url) {
     }
     return false;
 }
+function stripScriptingTags($input_fields_data){
+     foreach($input_fields_data as $key => $input_field_data){
+        if(is_string($input_field_data)){
+         $input_fields_data[$key]= strip_tags($input_field_data,'<br><b>');   
+        }        
+    }
+    return $input_fields_data;    
+}
