@@ -105,7 +105,6 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {    $domain_details= $this->getAdditionDomainDetails( get_domain($project->url)); 
-    //echo"<pre>";    print_r($domain_details); die;
         return view('project-view', compact('project','domain_details'));
     }
 
@@ -147,11 +146,11 @@ class ProjectController extends Controller
         }
         
         $project_detail_count = 0;
-        $project->short_name = $request->short_name;
-        $project->name = $request->name;
+        $project->short_name = strip_tags($request->short_name);
+        $project->name = strip_tags($request->name);
         $project->url = $request->url;
         
-        $form_data=$request->all();
+        $form_data=stripScriptingTags($request->all());
         $file1=$request->file('ssl_crt_file');
         $form_data['ssl_crt_file']= uploadFile($file1);
         $file2=$request->file('ssl_server_key_file');

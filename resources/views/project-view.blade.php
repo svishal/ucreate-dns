@@ -5,7 +5,10 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading center-align"> <span><h3>{{ strtoupper(getProjectName($project->id,1))}}</h3></span> </div>
+                <div class="panel-heading center-align col-md-12"> 
+                    <span class="col-lg-6 col-md-6"><h3 class="pull-right">{{ strtoupper(getProjectName($project->id,1))}}</h3></span> 
+                    <span class="col-lg-6 col-md-6 add-ssl-guide-link"><a class="pull-right" target="_blank" href="https://docs.google.com/gview?url=http://ucreate-dns.herokuapp.com/test.pdf">How to add SSL</a></span>
+                </div>
 
                 <div class="panel-body projects-page">
                     @if (session('status'))
@@ -171,7 +174,7 @@
                                <label>SSL CRT File</label>
                            </div> 
                            <div class="col-md-6">
-                            @if(!empty($project->projectDetail->ssl_crt_file)) <a href="{{getImageUrl($project->projectDetail->ssl_crt_file)}}" target="_blank">{{$project->projectDetail->ssl_crt_file}}</a> @else'' @endif      
+                            @if(!empty($project->projectDetail->ssl_crt_file)) <a href="{{readPrivateFileUrl($project->projectDetail->ssl_crt_file)}}" target="_blank">{{$project->projectDetail->ssl_crt_file}}</a> @else'' @endif      
                            </div>
                         </div>
                         <div class="panel-body  col-md-6">
@@ -179,7 +182,7 @@
                                <label>Server Key File </label>
                            </div> 
                            <div class="col-md-6">
-                            @if(!empty($project->projectDetail->ssl_server_key_file)) <a href="{{getImageUrl($project->projectDetail->ssl_server_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_key_file}}</a> @else'' @endif      
+                            @if(!empty($project->projectDetail->ssl_server_key_file)) <a href="{{readPrivateFileUrl($project->projectDetail->ssl_server_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_key_file}}</a> @else'' @endif      
                            </div>
                         </div>
                         <div class="panel-body  col-md-6">
@@ -187,7 +190,7 @@
                                <label>CSR File</label>
                            </div> 
                            <div class="col-md-6">
-                            @if(!empty($project->projectDetail->ssl_csr_file)) <a href="{{getImageUrl($project->projectDetail->ssl_csr_file)}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a> @else'' @endif 
+                            @if(!empty($project->projectDetail->ssl_csr_file)) <a href="{{readPrivateFileUrl(getImageUrl($project->projectDetail->ssl_csr_file))}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a> @else'' @endif 
                            </div>
                         </div>
                         <div class="panel-body  col-md-6">
