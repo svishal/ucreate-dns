@@ -28,7 +28,7 @@
     <ul class="nav navbar-nav navbar-right">
         @guest
         @if(Request::path() != 'login')<li><a href="{{ route('login') }}">Login</a></li>@endif
-          <li><a href="{{ route('register') }}">Register</a></li>
+<!--          <li><a href="{{ route('register') }}">Register</a></li>-->
         @else
         <!-- Authentication Links -->
         <li class="search-project"><form class="form-group " id="search" action="{{url('/search')}}" method="GET">
