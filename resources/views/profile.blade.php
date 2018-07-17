@@ -18,6 +18,7 @@
                         {{ session('success') }}
                     </div>
                     @endif
+                    @if(Auth::user()->user_type_id === 1)
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row">
@@ -93,6 +94,7 @@
                             </div><!--/row-->    
                         </div><!--/col-12-->
                     </div><!--/row-->
+                    @endif
                     <br>
                     <div class="row">
                         <div class="col-md-12">
