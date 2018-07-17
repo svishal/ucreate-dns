@@ -22,3 +22,4 @@ Route::get('/add-projects-from-doc', 'ProjectController@addProjectsFromDocument'
 Route::get('/search', 'ProjectController@search');
 Route::get('/get-additional-domain-details/{project_id}', 'ProjectController@createNameServerRecordRequest');
 Route::post('password/update', 'UserController@updatePassword');
+Route::post('user/create', 'UserController@create');

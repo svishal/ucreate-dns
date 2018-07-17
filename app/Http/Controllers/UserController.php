@@ -7,11 +7,36 @@ use Illuminate\Support\Facades\Hash;
 use Auth;
 use Validator;
 use Redirect;
+use App\Model\{User};
 
 class UserController extends Controller {
 
     public function __construct() {
         $this->middleware('auth');
+    }
+    
+    public function create(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+        
+        if(User::create(stripScriptingTags([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'user_type_id' => 2,
+        ]))
+                ){
+            return back()->with('success', 'User created successfully!');
+        }
     }
 
     public function updatePassword(Request $request) {
@@ -54,10 +79,10 @@ class UserController extends Controller {
             $userData->password = bcrypt($form_data['new_password']);
             //updating the password
             if ($userData->save()) {
-                return back()->with('password_success', 'Password has been updated!');
+                return back()->with('success', 'Password has been updated!');
             } else {
                 //throw error
-                return back()->with('password_error', 'Password could not be updated!');
+                return back()->with('error', 'Password could not be updated!');
             }
         }
     }

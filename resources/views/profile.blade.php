@@ -8,14 +8,14 @@
                 <div class="panel-heading">Profile</div>
 
                 <div class="panel-body">
-                    @if (session('password_error'))
+                    @if (session('error'))
                     <div class="alert alert-danger">
-                        {{ session('password_error') }}
+                        {{ session('error') }}
                     </div>
                     @endif
-                    @if (session('password_success'))
+                    @if (session('success'))
                     <div class="alert alert-success">
-                        {{ session('password_success') }}
+                        {{ session('success') }}
                     </div>
                     @endif
                     <div class="row">
@@ -26,7 +26,7 @@
                                         <h4>Add new user</h4>
                                     </div>
                                     <div class="col-md-10">
-                                        <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                                        <form class="form-horizontal" method="POST" action="{{ url('user/create') }}">
                                             {{ csrf_field() }}
 
                                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
