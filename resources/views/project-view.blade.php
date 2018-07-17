@@ -210,7 +210,12 @@
                            </div>
                         </div>
                      </div>
-                    <span class="pull-right"> <a  href="{{url('projects/'.$project->id.'/edit')}}">Edit</a>|<a href="{{url('projects/'.$project->id.'/delete')}}">Delete</a></span>
+                    <span class="pull-right"> <a  href="{{url('projects/'.$project->id.'/edit')}}">Edit</a>|<a href="javascript:void(0)" id="delete_project">Delete</a>
+                        <form action="{{url('projects/'.$project->id)}}" method="Post" id="delete_project_form">
+                            <input  type="hidden" name="_method" value="DELETE">
+                            <input  type="hidden" name="_token" value="{{ csrf_token() }}">
+                        </form>
+                    </span>
                 </div>
                 <div class="panel-body projects-page">
                     <div class="panel-heading center-align"><h3>Additional Domain details</h3> </div>
