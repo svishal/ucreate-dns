@@ -104,8 +104,10 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Project $project)
-    {    $domain_details= $this->getAdditionDomainDetails( get_domain($project->url)); 
+    {   $domain_details= ($project->nameServerRecord()->count() > 0)? $project->nameServerRecord()->first():"";
+        if(!empty($domain_details))  $domain_details= array_filter($domain_details->toArray());
         return view('project-view', compact('project','domain_details'));
+        
     }
 
     /**
@@ -196,7 +198,7 @@ class ProjectController extends Controller
     
     public function createNameServerRecordRequest($project_id){
         if(GetNameServerRecords::dispatch($project_id)){
-            return 'Request created successfully';
+            return 'Request submitted successfully!!';
         }
     }
 }

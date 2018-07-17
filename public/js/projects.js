@@ -13,14 +13,13 @@ $(function() {
     ignoreReadonly: true
   });
   
-// url = $("#url");
-//    if (url.length) {
-//        $.ajax({
-//            url: base_url + '/get-additional-domain-details' + url,
-//            cache: false,
-//            success: function (html) {
-//                $("#results").append(html);
-//            }
-//        });
-//    }  
+$("#update_records_now").on("click",function(){ 
+         $.ajax({
+            url: base_url + '/get-additional-domain-details/' +  $(this).attr('project-id'),
+            cache: false,
+            success: function (response) { 
+                $("#records_success_message").html(response);
+            }
+        });
+    });
 });
