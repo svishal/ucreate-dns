@@ -102,13 +102,11 @@
                                         <h4>Change password</h4>
                                     </div>
                                     <div class="col-md-10">
-                                        <form method="post" action="{{ url('password/update') }}" id="update_buyer_pwd_form" name="update_buyer_pwd_form">
+                                        <form  class="form-horizontal" method="post" action="{{ url('password/update') }}" id="update_buyer_pwd_form" name="update_buyer_pwd_form">
                                             {{ csrf_field() }}
-                                            <div class="col-md-12 ">
-                                                <div class="form-group col-md-12">
-                                                    <div class="col-md-6">
-                                                        <label>Current password <span class="notification-star-buyer">*</span></label>
-                                                    </div> 
+                                                <div class="form-group ">
+                                                  <label class="col-md-6 control-label" >Current password </label>
+                                                   
                                                     <div class="col-md-6 ">
                                                         <input class="form-control" tabindex="35" maxlength="30" size="30" type="password" name="old_password" id="old_password">
                                                         @if ($errors->has('old_password'))
@@ -116,10 +114,8 @@
                                                         @endif
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-md-12">
-                                                    <div class="col-md-6">
-                                                        <label>New password <span class="notification-star-buyer">*</span></label>
-                                                    </div> 
+                                                <div class="form-group">
+                                                   <label class="col-md-6 control-label" >New password </label>
                                                     <div class="col-md-6 ">
                                                         <input class="form-control" tabindex="36" maxlength="30" size="30" type="password" name="new_password" id="new_password">
                                                         @if ($errors->has('new_password'))
@@ -128,10 +124,8 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-md-12">
-                                                    <div class="col-md-6">
-                                                        <label>Confirm new password <span class="notification-star-buyer">*</span></label>
-                                                    </div> 
+                                                <div class="form-group ">
+                                                     <label class="col-md-6 control-label"> ConfirmNew password </label>
                                                     <div class="col-md-6 ">
                                                         <input class="form-control" tabindex="37" maxlength="30" size="30" type="password" name="confirm_password" id="confirm_password">
                                                         @if ($errors->has('confirm_password'))
@@ -148,7 +142,7 @@
                                             </div>
                                         </form>
 
-                                    </div>
+                                   
                                 </div>
                             </div><!--/row-->    
                         </div><!--/col-12-->
