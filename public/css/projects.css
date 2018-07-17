@@ -71,3 +71,10 @@ h4.text-danger a {
 #records_success_message{
    color:green; 
 }
+.container .panel-default,
+.container .panel-default>.panel-heading{
+ border-color:#c1c1c1c1;
+}
+.container .panel-default>.panel-heading{
+ margin-bottom: 10px;
+}
