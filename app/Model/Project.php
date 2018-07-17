@@ -53,9 +53,7 @@ class Project extends Model
         if(count($related_models)){
             $query = $query->with($related_models);
         }
-        if(count($query)){
-            $result = $query->get();
-        }
+        $result = $query->get();
         return $result;
     }
 }

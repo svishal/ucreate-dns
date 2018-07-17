@@ -4,11 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/html/ucreate-dns/routes/web.php</file>
-            <file>file:/var/www/html/ucreate-dns/resources/views/project-view.blade.php</file>
-            <file>file:/var/www/html/ucreate-dns/app/Http/Controllers/HomeController.php</file>
-            <file>file:/var/www/html/ucreate-dns/app/Http/Controllers/UserController.php</file>
-            <file>file:/var/www/html/ucreate-dns/resources/views/profile.blade.php</file>
-            <file>file:/var/www/html/ucreate-dns/resources/views/create-edit-project.blade.php</file>
+            <file>file:/var/www/html/ucreate-dns/app/Model/NameServerRecord.php</file>
+            <file>file:/var/www/html/ucreate-dns/Procfile</file>
+            <file>file:/var/www/html/ucreate-dns/app/Http/Controllers/ProjectController.php</file>
+            <file>file:/var/www/html/ucreate-dns/config/database.php</file>
+            <file>file:/var/www/html/ucreate-dns/app/Jobs/GetNameServerRecords.php</file>
+            <file>file:/var/www/html/ucreate-dns/app/Console/Kernel.php</file>
+            <file>file:/var/www/html/ucreate-dns/public/js/projects.js</file>
+            <file>file:/var/www/html/ucreate-dns/app/Model/Project.php</file>
             <file>file:/var/www/html/ucreate-dns/.env</file>
         </group>
     </open-files>
