@@ -4,9 +4,11 @@ namespace App\Model;
 use App\Model\ProjectDetail;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Project extends Model
 {
+    use SoftDeletes;
     protected $table = 'projects';
     protected $fillable = [
         'short_name', 'name', 'url'

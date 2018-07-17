@@ -190,6 +190,11 @@ class ProjectController extends Controller
             return redirect('projects/'.$project->id);
         }
     }
+    public function destroy(Request $request, Project $project){
+        if($project->delete()){
+            return redirect('projects')->with('status', 'Record succesfully deleted!');
+        }
+    }
     public function search(Request $request){
         $title = $request->search;
         $projects = \App\Model\Project::searchProject($title);
