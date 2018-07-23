@@ -56,5 +56,17 @@ class ProjectDetail extends Model
         if($count) return $query->count();
         return $query->with('project')->get();
     }
+    public static function fetchExpiringAccounts($date){
+       $today = date('Y-m-d');
+       return self::with('project')
+               ->whereDate('expires_date','<=',$date)
+               ->whereDate('expires_date', '>=', $today)
+               ->orWhere(function($q) use ($date, $today)
+               {
+                   $q->whereDate('ssl_expiry','<=',$date)
+                   ->whereDate('ssl_expiry', '>=', $today);
+               })->get();
+   }
+    
 }
 

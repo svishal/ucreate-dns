@@ -58,4 +58,22 @@ class Project extends Model
         $result = $query->get();
         return $result;
     }
+    public static function expiredFilters($key, $type = '') {
+        if ($key) {
+            if ($key == 'expired_ssl') {
+                $query = self::whereNotNull('ssl')->where('ssl', false)
+                        ->leftJoin('project_details', 'project_details.project_id', '=', 'projects.id');
+            } elseif ($key == 'expired_domains') {
+                $query = self::whereDate('expires_date', '<=', date('Y-m-d'))
+                        ->leftJoin('project_details', 'project_details.project_id', '=', 'projects.id');
+            } elseif ($key == 'expired_hosting') {
+                $query = self::whereDate('expires_date', '<=', date('Y-m-d'))
+                        ->leftJoin('project_details', 'project_details.project_id', '=', 'projects.id');
+            }
+        }
+        if (isset($query)) {
+           return (($type == 'count') ? $query->count() :  $query->get());
+            }
+        }
+    
 }

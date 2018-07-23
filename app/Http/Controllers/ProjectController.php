@@ -28,7 +28,15 @@ class ProjectController extends Controller
             $projects = Project::searchProject('', date("Y-m-d", strtotime("+15 day")), 'ssl_expiry');
         }elseif(count($form_data) && array_key_exists('expiring_domains', $form_data)){
             $projects = Project::searchProject('', date("Y-m-d", strtotime("+15 day")), 'expires_date');
-        }elseif(count($form_data) && array_key_exists('having_delegate_access', $form_data)){
+            
+        }elseif(count($form_data) && array_key_exists('expired_domains', $form_data)){
+            $projects = Project::expiredFilters('expired_domains');
+        }elseif(count($form_data) && array_key_exists('expired_ssl', $form_data)){
+            $projects = Project::expiredFilters('expired_ssl');
+        }elseif(count($form_data) && array_key_exists('expired_hosting', $form_data)){
+            $projects = Project::expiredFilters('expired_hosting');
+        }
+        elseif(count($form_data) && array_key_exists('having_delegate_access', $form_data)){
             $projects = Project::searchProject('', '', 'having_delegate_access');
         }else{
             $projects = Project::allProjects();
