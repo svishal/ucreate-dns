@@ -69,6 +69,7 @@
                            <div class="col-lg-6  col-md-6 ">
                                <label>SSL CRT File</label>
                            </div> 
+                       
                            <div class="col-lg-6  col-md-6 ">
                             @if(!empty($project->projectDetail->ssl_crt_file)) <a href="{{readPrivateFileUrl($project->projectDetail->ssl_crt_file)}}" target="_blank">{{$project->projectDetail->ssl_crt_file}}</a> @else N/A @endif      
                            </div>
@@ -103,7 +104,7 @@
                                <label>CSR File</label>
                            </div> 
                            <div class="col-lg-6  col-md-6 ">
-                            @if(!empty($project->projectDetail->ssl_csr_file)) <a href="{{readPrivateFileUrl(getImageUrl($project->projectDetail->ssl_csr_file))}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a> @else N/A @endif 
+                            @if(!empty($project->projectDetail->ssl_csr_file)) <a href="{{readPrivateFileUrl($project->projectDetail->ssl_csr_file)}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a> @else N/A @endif 
                            </div>
                         </div>
                         

@@ -179,7 +179,7 @@
                                         <div class="col-md-6 ">
                                             <input type="file" name="ssl_crt_file" value="">
                                             @if(!empty($project->projectDetail->ssl_crt_file))
-                                            <a href="{{getImageUrl($project->projectDetail->ssl_crt_file)}}" target="_blank">{{$project->projectDetail->ssl_crt_file}}</a>
+                                            <a href="{{readPrivateFileUrl($project->projectDetail->ssl_crt_file)}}" target="_blank">{{$project->projectDetail->ssl_crt_file}}</a>
                                             @endif
                                         </div>
                                     </div>
@@ -190,7 +190,7 @@
                                         <div class="col-md-6 ">
                                             <input type="file" name="ssl_server_key_file" value="">
                                             @if(!empty($project->projectDetail->ssl_server_key_file))
-                                            <a href="{{getImageUrl($project->projectDetail->ssl_server_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_key_file}}</a>
+                                            <a href="{{readPrivateFileUrl($project->projectDetail->ssl_server_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_key_file}}</a>
                                             @endif
                                         </div>
                                     </div>
@@ -201,7 +201,7 @@
                                         <div class="col-md-6 ">
                                             <input type="file" name="ssl_csr_file" value="">
                                             @if(!empty($project->projectDetail->ssl_csr_file))
-                                            <a href="{{getImageUrl($project->projectDetail->ssl_csr_file)}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a>
+                                            <a href="{{readPrivateFileUrl($project->projectDetail->ssl_csr_file)}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a>
                                             @endif
                                         </div>
                                     </div>
@@ -212,7 +212,7 @@
                                         <div class="col-md-6 ">
                                             <input type="file" name="ssl_server_pass_key_file" value="">
                                             @if(!empty($project->projectDetail->ssl_server_pass_key_file))
-                                            <a href="{{getImageUrl($project->projectDetail->ssl_server_pass_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_pass_key_file}}</a>
+                                            <a href="{{readPrivateFileUrl($project->projectDetail->ssl_server_pass_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_pass_key_file}}</a>
                                             @endif
                                         </div>
                                     </div>

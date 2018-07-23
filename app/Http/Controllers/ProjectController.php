@@ -137,13 +137,12 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Project $project)
-    {
+    {    
         $request->short_name = strtolower($request->short_name);
         $request->name = strtolower($request->name);
         $request->url = strtolower($request->url);
         
         $validator = Validator::make($request->all(), [
-            'short_name' => "bail|required|unique:projects,short_name,$project->id",
             'name' => "bail|required|unique:projects,name,$project->id",
             'url' => "bail|required|url|unique:projects,url,$project->id",
             'contact_email' => "bail|nullable|email",
@@ -156,19 +155,20 @@ class ProjectController extends Controller
         }
         
         $project_detail_count = 0;
-        $project->short_name = strip_tags($request->short_name);
         $project->name = strip_tags($request->name);
         $project->url = $request->url;
-        
+          
+            
+        print_r(str_replace('', '_', $request->name));
         $form_data=stripScriptingTags($request->all());
         $file1=$request->file('ssl_crt_file');
-        $form_data['ssl_crt_file']= uploadFile($file1);
+        $form_data['ssl_crt_file']= uploadFile($file1, str_replace('', '_', $request->name));
         $file2=$request->file('ssl_server_key_file');
-        $form_data['ssl_server_key_file']= uploadFile($file2);
+        $form_data['ssl_server_key_file']= uploadFile($file2, str_replace(' ', '_', $request->name));
         $file3=$request->file('ssl_csr_file');
-        $form_data['ssl_csr_file']= uploadFile($file3);
+        $form_data['ssl_csr_file']= uploadFile($file3, str_replace(' ', '_', $request->name));
         $file4=$request->file('ssl_server_pass_key_file');
-        $form_data['ssl_server_pass_key_file']= uploadFile($file4);
+        $form_data['ssl_server_pass_key_file']= uploadFile($file4, str_replace(' ', '_', $request->name));
         
         $form_data['created_date'] = (!empty($request->created_date))?date('Y-m-d', strtotime($request->created_date)):'';
         $form_data['expires_date'] = (!empty($request->expires_date))?date('Y-m-d', strtotime($request->expires_date)):'';
@@ -177,7 +177,7 @@ class ProjectController extends Controller
         if($project->save()){
             $project_details = [];
             foreach ($form_data as $key=>$value){
-                if($key == 'short_name' || $key == 'name' || $key == 'url' || $key == '_token' || $key == '_method') continue;
+                if($key == 'name' || $key == 'url' || $key == '_token' || $key == '_method') continue;
                 if(isset($project->projectDetail->id)){
                     if(!empty(trim($value))){
                         $project->projectDetail->$key = $value;

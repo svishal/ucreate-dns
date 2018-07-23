@@ -5,10 +5,10 @@ function getProjectName($id,$short_name_only){
    return ($short_name_only)? Project::find($id)->short_name:Project::find($id)->name;
  
 }
-function uploadFile($file){ 
+function uploadFile($file, $prefix){ 
    if(!empty($file)){
    $original_file= $file->getClientOriginalName();
-   $name=time()."_".$original_file;
+   $name= (($prefix)?$prefix:time())."_".$original_file;
    $s3 = \Storage::disk('s3');
    $s3_bucket = getenv("AWS_BUCKET");
    $file_path = '/' . $name;
@@ -18,6 +18,7 @@ function uploadFile($file){
 }
 
 function readPrivateFileUrl($url_key, $minutes = 10) {
+    //print_r($url_key); die;
     $s3 = Storage::disk('s3');
     if (!$s3->exists($url_key))  return 0;
     $client = $s3->getDriver()->getAdapter()->getClient();
