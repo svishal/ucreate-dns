@@ -135,6 +135,6 @@ class Kernel extends ConsoleKernel
     }
     
     public function sendExpiryNotification(){
-        //in progress
+        // in progress
     }
 }

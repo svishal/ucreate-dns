@@ -24,7 +24,7 @@ class ProjectDetail extends Model
     public static function projectExpiresIn($date){
         $today = date('Y-m-d');
         return self::whereDate('expires_date','<=',$date)
-                ->whereDate('ssl_expiry', '>=', $today)
+                ->whereDate('expires_date', '>=', $today)
                 ->count();
     }
     public static function projectSslExpiresIn($date, $count=false){
@@ -37,7 +37,7 @@ class ProjectDetail extends Model
     public static function projectHostingExpiresIn($date){
         $today = date('Y-m-d');
         return self::whereDate('expires_date','<=',$date)
-                ->whereDate('ssl_expiry', '>=', $today)
+                ->whereDate('expires_date', '>=', $today)
                 ->count();
     }
 }
