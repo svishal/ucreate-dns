@@ -244,6 +244,17 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <div class="col-md-6">
+                                            <label>Upload Server Pass Key File</label>
+                                        </div> 
+                                        <div class="col-md-6 ">
+                                            <input type="file" name="ssl_server_pass_key_file" value="">
+                                            @if(!empty($project->projectDetail->ssl_server_pass_key_file))
+                                            <a href="{{getImageUrl($project->projectDetail->ssl_server_pass_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_pass_key_file}}</a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="col-md-6">
                                             <label>SSL Expiry</label>
                                         </div> 
                                         <div class="col-md-6 ">

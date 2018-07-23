@@ -174,7 +174,7 @@
                                <label>SSL CRT File</label>
                            </div> 
                            <div class="col-lg-6  col-md-6 ">
-                            @if(!empty($project->projectDetail->ssl_crt_file)) <a href="{{readPrivateFileUrl($project->projectDetail->ssl_crt_file)}}" target="_blank">{{$project->projectDetail->ssl_crt_file}}</a> @else'' @endif      
+                            @if(!empty($project->projectDetail->ssl_crt_file)) <a href="{{readPrivateFileUrl($project->projectDetail->ssl_crt_file)}}" target="_blank">{{$project->projectDetail->ssl_crt_file}}</a> @else N/A @endif      
                            </div>
                         </div>
                         <div class="panel-body  col-lg-6  col-md-6 ">
@@ -182,7 +182,7 @@
                                <label>Server Key File </label>
                            </div> 
                            <div class="col-lg-6  col-md-6 ">
-                            @if(!empty($project->projectDetail->ssl_server_key_file)) <a href="{{readPrivateFileUrl($project->projectDetail->ssl_server_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_key_file}}</a> @else'' @endif      
+                            @if(!empty($project->projectDetail->ssl_server_key_file)) <a href="{{readPrivateFileUrl($project->projectDetail->ssl_server_key_file)}}" target="_blank">{{$project->projectDetail->ssl_server_key_file}}</a> @else N/A @endif      
                            </div>
                         </div>
                         <div class="panel-body  col-lg-6  col-md-6 ">
@@ -190,7 +190,15 @@
                                <label>CSR File</label>
                            </div> 
                            <div class="col-lg-6  col-md-6 ">
-                            @if(!empty($project->projectDetail->ssl_csr_file)) <a href="{{readPrivateFileUrl(getImageUrl($project->projectDetail->ssl_csr_file))}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a> @else'' @endif 
+                            @if(!empty($project->projectDetail->ssl_csr_file)) <a href="{{readPrivateFileUrl(getImageUrl($project->projectDetail->ssl_csr_file))}}" target="_blank">{{$project->projectDetail->ssl_csr_file}}</a> @else N/A @endif 
+                           </div>
+                        </div>
+                        <div class="panel-body  col-lg-6  col-md-6 ">
+                           <div class="col-lg-6  col-md-6 ">
+                               <label>Server Pass Key File</label>
+                           </div> 
+                           <div class="col-lg-6  col-md-6 ">
+                            @if(!empty($project->projectDetail->ssl_server_pass_key_file)) <a href="{{readPrivateFileUrl(getImageUrl($project->projectDetail->ssl_server_pass_key_file))}}" target="_blank">{{$project->projectDetail->ssl_server_pass_key_file}}</a> @else N/A @endif 
                            </div>
                         </div>
                         <div class="panel-body  col-lg-6  col-md-6 ">

@@ -159,6 +159,8 @@ class ProjectController extends Controller
         $form_data['ssl_server_key_file']= uploadFile($file2);
         $file3=$request->file('ssl_csr_file');
         $form_data['ssl_csr_file']= uploadFile($file3);
+        $file4=$request->file('ssl_server_pass_key_file');
+        $form_data['ssl_server_pass_key_file']= uploadFile($file4);
         
         $form_data['created_date'] = (!empty($request->created_date))?date('Y-m-d', strtotime($request->created_date)):'';
         $form_data['expires_date'] = (!empty($request->expires_date))?date('Y-m-d', strtotime($request->expires_date)):'';
