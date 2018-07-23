@@ -62,7 +62,7 @@ class Project extends Model
     public static function expiredFilters($key, $type = '') {
         if ($key) {
             if ($key == 'expired_ssl') {
-                $query = self::whereNotNull('ssl')->where('ssl', false)
+                $query = self::whereDate('ssl_expiry', '<=', date('Y-m-d'))
                         ->leftJoin('project_details', 'project_details.project_id', '=', 'projects.id');
             } elseif ($key == 'expired_domains') {
                 $query = self::whereDate('expires_date', '<=', date('Y-m-d'))
