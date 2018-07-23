@@ -34,14 +34,14 @@ class Project extends Model
         }
         if($filter_by_field){
             if($filter_by_field=='having_ssl'){
-                $query = ProjectDetail::whereNotNull('ssl')->where('ssl', TRUE)
-                    ->join('projects', 'projects.id', '=', 'project_details.project_id');
+                $query = self::whereNotNull('ssl')->where('ssl', TRUE)
+                    ->join('project_details', 'project_details.project_id', '=', 'projects.id');
             }elseif($filter_by_field=='having_delegate_access'){
-                $query = ProjectDetail::whereNotNull('delegate_access_account')
-                    ->join('projects', 'projects.id', '=', 'project_details.project_id');
+                $query = self::whereNotNull('delegate_access_account')
+                    ->join('project_details', 'project_details.project_id', '=', 'projects.id');
             }else{
-                $query = ProjectDetail::whereDate($filter_by_field,'<=',$date)
-                    ->join('projects', 'projects.id', '=', 'project_details.project_id');
+                $query = self::whereDate($filter_by_field,'<=',$date)
+                    ->join('project_details', 'project_details.project_id', '=', 'projects.id');
             }
         }
         if(isset($query)){
