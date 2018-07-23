@@ -27,15 +27,17 @@
                           @if(count($projects))
                            @foreach($projects as $project)
                             <tr>
-                                <td><a href="{{url('projects/'.$project->id)}}">{{ucfirst($project->name)}}</a>
+                                <td><a href="@if(isset($project->project_id)) {{url('projects/'.$project->project_id)}} @else {{url('projects/'.$project->id)}} @endif">{{ucfirst($project->name)}}</a>
                                     <span class="site_url"><a target="_blank"href="{{$project->url}}"><img src="{{url('/images/external_url.png')}}"></a></span>
 
 </td>
                               <td>
-                                  {{(isset($project->projectDetail->expires_date))?date('d-m-Y', strtotime($project->projectDetail->expires_date)):""}}
+                                  {{(isset($project->projectDetail->expires_date))?date('d-m-Y', strtotime($project->projectDetail->expires_date)):
+                                              isset($project->expires_date)?date('d-m-Y', strtotime($project->expires_date)):""}}
                               </td>
                               <td>
-                                  {{(isset($project->projectDetail->ssl_expiry))?date('d-m-Y', strtotime($project->projectDetail->ssl_expiry)):""}}
+                                  {{(isset($project->projectDetail->ssl_expiry))?date('d-m-Y', strtotime($project->projectDetail->ssl_expiry)):
+                                              isset($project->ssl_expiry)?date('d-m-Y', strtotime($project->ssl_expiry)):""}}
                               </td>
                               </tr>
                               </a>

@@ -41,6 +41,7 @@ class Project extends Model
                     ->join('project_details', 'project_details.project_id', '=', 'projects.id');
             }else{
                 $query = self::whereDate($filter_by_field,'<=',$date)
+                    ->whereDate($filter_by_field,'>=',date('Y-m-d'))
                     ->join('project_details', 'project_details.project_id', '=', 'projects.id');
             }
         }
