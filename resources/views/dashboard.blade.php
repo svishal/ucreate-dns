@@ -56,7 +56,32 @@
                                 <a href="{{url('projects?expiring_domains')}}">
                                     <div class="col-md-4">
                                         <div class="well">
-                                            <h4 class="text-danger">Hosting</a><span class="label label-danger pull-right">{{$dashboard['hosting_expiring_soon']}}</span>  </h4>
+                                            <h4 class="text-danger">Hosting<span class="label label-danger pull-right">{{$dashboard['hosting_expiring_soon']}}</span>  </h4>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div><!--/row-->    
+                        </div><!--/col-12-->
+                    </div><!--/row-->
+                     <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="text-expired">Already Expired</h3>
+                            <div class="row">
+                                <a href="{{url('projects?expired_domains')}}"><div class="col-md-4">
+                                        <div class="well">
+                                            <h4 class="text-expired">Domains<span class="label label-danger pull-right">{{$dashboard['expired_domains']}}</span>  </h4>
+                                        </div>
+                                    </div></a>
+                                <a href="{{url('projects?expired_ssl')}}">
+                                    <div class="col-md-4">
+                                        <div class="well">
+                                            <h4 class="text-expired">SSL<span class="label label-danger pull-right">{{$dashboard['expired_ssl']}}</span>  </h4>
+                                        </div>
+                                    </div></a>
+                                <a href="{{url('projects?expired_hosting')}}">
+                                    <div class="col-md-4">
+                                        <div class="well">
+                                            <h4 class="text-expired">Hosting<span class="label label-danger pull-right">{{$dashboard['expired_hosting']}}</span>  </h4>
                                         </div>
                                     </div>
                                 </a>

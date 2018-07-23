@@ -51,6 +51,12 @@ h4.text-danger a {
 .center-align{
     text-align: center;
 }
+.text-expired{
+    color:#8E7565;
+} 
+.text-expired .label-danger{
+    background-color:#EEA959;
+} 
 .domain-logo {
     width: 200px;
     text-align: center;

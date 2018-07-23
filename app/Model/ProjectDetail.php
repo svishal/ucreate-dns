@@ -40,4 +40,21 @@ class ProjectDetail extends Model
                 ->whereDate('expires_date', '>=', $today)
                 ->count();
     }
+    public static function expiredProjects(){
+        $today = date('Y-m-d');
+        return self::whereDate('expires_date', '<=', $today)
+                ->count();
+    }
+    public static function expiredProjectHosting(){
+        $today = date('Y-m-d');
+        return self::whereDate('expires_date', '<=', $today)
+                ->count();
+    }
+     public static function expiredProjectsSsl($count=false){
+        $today = date('Y-m-d');
+        $query = self::whereDate('ssl_expiry', '<=', $today);
+        if($count) return $query->count();
+        return $query->with('project')->get();
+    }
 }
+

@@ -40,7 +40,10 @@ class HomeController extends Controller
         $dashboard['domains_expiring_soon']= ProjectDetail::projectExpiresIn(date("Y-m-d", strtotime("+15 day")));
         $dashboard['ssl_expiring_soon']= ProjectDetail::projectSslExpiresIn(date("Y-m-d", strtotime("+15 day")), true);
         $dashboard['hosting_expiring_soon']= ProjectDetail::projectHostingExpiresIn(date("Y-m-d", strtotime("+15 day")));
-  
+        
+        $dashboard['expired_domains']= ProjectDetail::expiredProjects();
+        $dashboard['expired_ssl']= ProjectDetail::expiredProjectsSsl(true);
+        $dashboard['expired_hosting']= ProjectDetail::expiredProjectHosting();
         return view('dashboard', compact('dashboard')); 
     }
     public function profile(){
