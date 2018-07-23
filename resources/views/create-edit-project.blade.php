@@ -26,19 +26,7 @@
                             <form action="{{url('projects')}}" method="Post" enctype="multipart/form-data">
                                 <input  type="hidden" name="_token" value="{{ csrf_token() }}">
                                 @endif
-                                <div class="form-group col-md-6 ">
-                                    <div class="col-md-6 ">
-                                        <label>Short Name</label>
-                                    </div> 
-                                    <div class="col-md-6 ">
-                                        <input class="form-control" type="text" name="short_name" value="{{($project->short_name)??old('short_name')}}"> 
-                                        @if ($errors->has('short_name'))
-                                        <p class="validation-error">{{ $errors->first('short_name') }}</p>
-                                        @endif
-                                    </div>
-
-                                </div>
-                                <div class="form-group col-md-6 ">
+                            <div class="form-group col-md-6 ">
                                     <div class="col-md-6 ">
                                         <label>Name</label>
                                     </div> 
@@ -122,15 +110,7 @@
                                         <input class="form-control" type="text" name="hosted_on" value="{{($project->projectDetail->hosted_on)??old('hosted_on')}}">
                                     </div>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <div class="col-md-6">
-                                        <label>DNSSEC</label>
-
-                                    </div> 
-                                    <div class="col-md-6 ">
-                                        <input class="form-control" type="text" name="dnssec" value="{{($project->projectDetail->dnssec)??old('dnssec')}}">
-                                    </div>
-                                </div>
+                              
                                 <div class="form-group col-md-6">
                                     <div class="col-md-6">
                                         <label>Contact Email</label>
@@ -170,24 +150,7 @@
                                         <input class="form-control" type="text" name="address" value="{{($project->projectDetail->address)??old('address')}}">
                                     </div>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <div class="col-md-6">
-                                        <label>Delegate Access Account </label>
-
-                                    </div> 
-                                    <div class="col-md-6 ">
-                                        <input class="form-control" type="text" name="address" value="{{($project->projectDetail->delegate_access_account)??old('delegate_access_account')}}">
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <div class="col-md-6">
-                                        <label>Alexa Rank</label>
-
-                                    </div> 
-                                    <div class="col-md-6 ">
-                                        <input class="form-control" type="text" name="alexa_rank" value="{{($project->projectDetail->alexa_rank)??old('alexa_rank')}}">
-                                    </div>
-                                </div>
+                               
                                 <div class="form-group col-md-6">
                                     <div class="col-md-6">
                                         <label>SSL</label>
@@ -253,6 +216,15 @@
                                             @endif
                                         </div>
                                     </div>
+                                     <div class="form-group col-md-6">
+                                    <div class="col-md-6">
+                                        <label>Delegate Access Account </label>
+
+                                    </div> 
+                                    <div class="col-md-6 ">
+                                        <input class="form-control" type="text" name="address" value="{{($project->projectDetail->delegate_access_account)??old('delegate_access_account')}}">
+                                    </div>
+                                   </div>
                                     <div class="form-group col-md-6">
                                         <div class="col-md-6">
                                             <label>SSL Expiry</label>
