@@ -22,6 +22,7 @@
         <li><a href="{{url('projects')}}">All Domains</a></li>
         <li><a href="{{url('projects/create')}}">Add New Domain</a></li>
         <li><a href="{{url('profile')}}">Profile</a></li>
+        <li><a target="_blank" href="https://docs.google.com/document/d/1pSZkaY4na8o8CeC0yKIl-wijhLw6PlWPn9FnP_qd2nU/edit?ts=595cb423">Developer Knowledge-Base</a></li>
     </ul>
     @endguest
     <!-- Right Side Of Navbar -->
