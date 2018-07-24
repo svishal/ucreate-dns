@@ -76,15 +76,6 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <div class="col-md-6">
-                                        <label>Website Title</label>
-
-                                    </div> 
-                                    <div class="col-md-6 ">
-                                        <input class="form-control" type="text" name="website_title" value="{{($project->projectDetail->website_title)??old('website_title')}}">
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <div class="col-md-6">
                                         <label>Technology</label>
 
                                     </div> 
@@ -242,7 +233,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group center-align ">
+                                <div class="form-group col-md-6  ">
                                     <input class="btn btn-lg btn-primary" type="submit">         
                                 </div>
 
