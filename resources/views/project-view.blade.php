@@ -130,7 +130,7 @@
                             <label>Hosted On</label>
                         </div> 
                         <div class="col-lg-6  col-md-6 ">
-                             {{($project->projectDetail->server_type)??''}}     
+                             {{($project->projectDetail->hosted_on)??''}}     
                         </div>
                      </div>
                      <div class="panel-body  col-lg-6  col-md-6 ">

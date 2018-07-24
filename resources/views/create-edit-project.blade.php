@@ -213,7 +213,7 @@
 
                                     </div> 
                                     <div class="col-md-6 ">
-                                        <input class="form-control" type="text" name="address" value="{{($project->projectDetail->delegate_access_account)??old('delegate_access_account')}}">
+                                        <input class="form-control" type="text" name="delegate_access_account" value="{{($project->projectDetail->delegate_access_account)??old('delegate_access_account')}}">
                                     </div>
                                    </div>
                                     <div class="form-group col-md-6">
