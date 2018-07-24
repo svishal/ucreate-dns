@@ -32,6 +32,12 @@ class Project extends Model
                ->leftJoin('project_details', 'project_details.project_id', '=', 'projects.id');
             
         }
+        if(isset($query)){
+          return $query->get();  
+        }
+    }
+    
+    public static function filterByField($filter_by_field, $date=''){
         if($filter_by_field){
             if($filter_by_field=='having_ssl'){
                 $query = self::whereNotNull('ssl')->where('ssl', TRUE)

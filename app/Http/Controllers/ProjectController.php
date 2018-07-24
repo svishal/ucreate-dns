@@ -23,12 +23,11 @@ class ProjectController extends Controller
     {
         $form_data = $request->all();
         if(count($form_data) && array_key_exists('having_ssl', $form_data)){
-             $projects = Project::searchProject('', '', 'having_ssl');
+             $projects = Project::filterByField('having_ssl');
         }elseif(count($form_data) && array_key_exists('expiring_ssl', $form_data)){
-            $projects = Project::searchProject('', date("Y-m-d", strtotime("+15 day")), 'ssl_expiry');
+            $projects = Project::filterByField('', date("Y-m-d", strtotime("+15 day")), 'ssl_expiry');
         }elseif(count($form_data) && array_key_exists('expiring_domains', $form_data)){
-            $projects = Project::searchProject('', date("Y-m-d", strtotime("+15 day")), 'expires_date');
-            
+            $projects = Project::filterByField('', date("Y-m-d", strtotime("+15 day")), 'expires_date');
         }elseif(count($form_data) && array_key_exists('expired_domains', $form_data)){
             $projects = Project::expiredFilters('expired_domains');
         }elseif(count($form_data) && array_key_exists('expired_ssl', $form_data)){
@@ -37,7 +36,7 @@ class ProjectController extends Controller
             $projects = Project::expiredFilters('expired_hosting');
         }
         elseif(count($form_data) && array_key_exists('having_delegate_access', $form_data)){
-            $projects = Project::searchProject('', '', 'having_delegate_access');
+            $projects = Project::filterByField('having_delegate_access');
         }else{
             $projects = Project::allProjects();
         }
