@@ -32,12 +32,22 @@
 
 </td>
                               <td>
-                                  {{(isset($project->projectDetail->expires_date))?date('d-m-Y', strtotime($project->projectDetail->expires_date)):
-                                              isset($project->expires_date)?date('d-m-Y', strtotime($project->expires_date)):""}}
+                                   @if(isset($project->projectDetail['expires_date']) && !empty($project->projectDetail['expires_date']))
+                                        {{date('d-m-Y', strtotime($project->projectDetail['expires_date']))}}
+                                   @elseif(isset($project->expires_date) && !empty($project->expires_date))
+                                        {{date('d-m-Y', strtotime($project->expires_date))}}
+                                   @else
+                                        {{''}}
+                                   @endif
                               </td>
                               <td>
-                                  {{(isset($project->projectDetail->ssl_expiry))?date('d-m-Y', strtotime($project->projectDetail->ssl_expiry)):
-                                              isset($project->ssl_expiry)?date('d-m-Y', strtotime($project->ssl_expiry)):""}}
+                                    @if(isset($project->projectDetail['ssl_expiry']) && !empty($project->projectDetail['ssl_expiry']))
+                                        {{date('d-m-Y', strtotime($project->projectDetail['ssl_expiry']))}}
+                                    @elseif(isset($project->ssl_expiry) && !empty($project->ssl_expiry))
+                                        {{date('d-m-Y', strtotime($project->ssl_expiry))}}
+                                    @else
+                                        {{''}}
+                                    @endif
                               </td>
                               </tr>
                               </a>
