@@ -142,15 +142,15 @@ class Kernel extends ConsoleKernel {
         return $result;
     }
 
-    public function sendExpiryNotification() {
+    public function sendExpiryNotification() {       
         $projects = ProjectDetail::fetchExpiringAccounts(date('Y-m-d', strtotime('+1 week')));
         if (count($projects)) {
             foreach ($projects as $project) {
                 $text = "Dear Admin,<br><br>One of the account is expiring soon. Please find the details below of the same:<br><br>"
                         . "Project Name: " . ucfirst($project->project->name) . "<br>"
                         . "Project Url: " . $project->project->url . "<br>"
-                        . "Domain Name Expiry Date: " . date('d-m-Y', strtotime($project->expires_date)) . "<br>"
-                        . "SSL Expiry Date: " . date('d-m-Y', strtotime($project->ssl_expiry)) . "<br><br>"
+                        .(!empty($project->expires_date)? ("Domain Name Expiry Date: " . date('d-m-Y', strtotime($project->expires_date)). "<br>"):"") 
+                        .(!empty($project->ssl_expiry)? ("SSL Expiry Date: " . date('d-m-Y', strtotime($project->ssl_expiry)). "<br><br>"):"") 
                         . "Thanks and regards,<br>"
                         . "Ucreate-DNS";
                 $mail = new PHPMailer(true);
